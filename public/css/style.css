@@ -22,3 +22,19 @@ nav {
     height: 23vw;
     border: 1px solid black;
 }
+
+/* Ipad Screen */
+@media only screen and (max-width: 650px) {
+    .flowerImgs{
+        width: 30.666vw;
+        height: 30.666vw;
+    }
+}
+
+/* Iphone Screen */
+@media only screen and (max-width: 450px) {
+    .flowerImgs{
+        width: 46vw;
+        height: 46vw;
+    }
+}
