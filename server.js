@@ -88,5 +88,3 @@ app.delete('/api/flowers/:id', (req, res) => {
 
 // Start Server
 app.listen(PORT, () => console.log(`Server runing on port ${PORT}`));
-
-
