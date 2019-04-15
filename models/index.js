@@ -6,6 +6,8 @@ mongoose.connect(DB_URL, {useNewUrlParser: true, useFindAndModify: false})
   .catch((err) => console.log(err));
 
 
-module.exports = {
-  Project: require('./project'),
-}
+
+module.exports.Project = require('./project'); 
+module.exports.User = require('./user'); 
+module.exports.Order = require('./order'); 
+module.exports.Flower = require('./flower'); 
