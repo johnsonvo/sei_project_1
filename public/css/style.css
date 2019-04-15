@@ -1,0 +1,24 @@
+Body {
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    display: flex;
+}
+
+nav {
+    display: flex;
+}
+
+.flowers {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.flowerImgs {
+    margin: 1vw;
+    width: 23vw;
+    height: 23vw;
+    border: 1px solid black;
+}
