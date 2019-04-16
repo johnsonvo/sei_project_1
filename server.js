@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-//Database
+// Database
 mongoose.Promise = global.Promise;
 const db = require('./models');
 
@@ -22,7 +22,7 @@ app.use((req, res, next) => {
   next();
 });
 
-// Error handling
+// Error handling - removed bc it's causing an error
 // app.use((req, res, next) => {
 //   const error = new Error('Not found');
 //   error.status = 404;
@@ -38,6 +38,98 @@ app.use((req, res, next) => {
 //   });
 // });
 
+/////////////////////
+/// SEED DATA ///
+////////////////////
+const usersList = [
+  {
+    fullName: "Leanne Graham",
+    email: "Sincere@april.biz",
+    dob: "2/11/1988",
+    products: "Rose"
+  },
+  {
+    fullName: "Ervin Howell",
+    email: "Shanna@melissa.tv",
+    dob: "2/09/1900",
+    products: "Sunflower"
+  },
+  {
+    fullName: "Clementine Bauch",
+    email: "Nathan@yesenia.net",
+    dob: "12/1/1957",
+    products: "Canation"
+  },
+  {
+    fullName: "Patricia Lebsack",
+    email: "Julianne.OConner@kory.org",
+    dob: "15/08/2000",
+    products: "Rose"
+  }
+];
+
+const flowersList = [
+  {
+    name: "Aconite",
+    img:
+      "https://proflowers.wpengine.com/wp-content/plugins/pf-flowertypes/image/winter-aconite-720790.jpg",
+    price: "$12",
+    season: "Early Spring",
+    orders: 12
+  },
+  {
+    name: "Ageratum",
+    img:
+      "https://proflowers.wpengine.com/wp-content/plugins/pf-flowertypes/image/ageratum-773201.jpg",
+    price: "$11",
+    season: "Mid‑Summer - Mid‑Fall",
+    orders: 15
+  },
+  {
+    name: "Allium",
+    img:
+      "https://proflowers.wpengine.com/wp-content/plugins/pf-flowertypes/image/purple-882161.jpg",
+    price: "$11",
+    season: "Late Spring - Mid‑Summer",
+    orders: 11
+  },
+  {
+    name: "Anemone",
+    img:
+      "https://proflowers.wpengine.com/wp-content/plugins/pf-flowertypes/image/summer-anemone-224501.jpg",
+    price: "$10",
+    season: "Mid Spring - Mid‑Fall",
+    orders: 10
+  }
+];
+
+const ordersList = [
+  {
+    userId: 1,
+    quantity: 3,
+    price: "$100",
+    productId: 12
+  },
+  {
+    userId: 2,
+    quantity: 4,
+    price: "$200",
+    productId: 13
+  },
+  {
+    userId: 3,
+    quantity: 6,
+    price: "$300",
+    productId: 14
+  },
+  {
+    userId: 4,
+    quantity: 7,
+    price: "$500",
+    productId: 15
+  }
+];
+
 //Serve Static Assets
 app.use(express.static(__dirname + '/public'));
 
@@ -46,13 +138,26 @@ app.get('/', (req,res) => {
     res.sendFile('views/index.html', {root: __dirname});
 });
 
+
 /////////////////////
 /// USERS ROUTES ///
 ////////////////////
 // Get User
 app.get('/api/users', (req, res) => {
-    res.status(200).json({ msg: 'Handling GET requests to /users' });
+  console.log("usersList index");
+  res.json(usersList);
+    // res.status(200).json({ msg: 'Handling GET requests to /users' });
 });
+
+// app.get("/api/users", (req, res) => {
+//   db.Users.find((err, users) => {
+//     if (err) {
+//       console.log('index err: ' + err);
+//       res.sendStatus(500);
+//     }
+//     res.json(users);
+//   });
+// });
 
 // Create User
 app.post('/api/users', (req, res) => {
@@ -86,36 +191,38 @@ app.delete('/api/users/:userId', (req, res) => {
 /////////////////////
 // FLOWERS ROUTES //
 ///////////////////
-// Get flower
-app.get('/api/products', (req, res) => {
-    res.status(200).json({ msg: 'Handling GET requests to /products' });
+// Get Flower
+app.get("/api/flowers", (req, res) => {
+  console.log("flowersList index");
+  res.json(flowersList);
+  res.status(200).json({ msg: "Handling GET requests to /flowers" });
 });
 
 // Create Flower
-app.post('/api/products', (req, res) => {
+app.post('/api/flowers', (req, res) => {
   const flower = {
     name: req.body.name,
     price: req.body.price
   };
   res.status(201).json({
-    msg: 'Handling POST requests to /products',
+    msg: 'Handling POST requests to /flowers',
     createdFlower: flower
   });
 });
 
 // Get Flower by ID
-app.get('/api/products/:id', (req, res) => {
-  res.status(200).json({ msg: 'Handling GET requests to /products by ID' });
+app.get('/api/flowers/:id', (req, res) => {
+  res.status(200).json({ msg: 'Handling GET requests to /flowers by ID' });
 });
 
 // Update Flower by ID
-app.put('/api/products/:id', (req, res) => {
-  res.status(200).json({ msg: 'Handling GET requests to /products by ID' });
+app.put('/api/flowers/:id', (req, res) => {
+  res.status(200).json({ msg: 'Handling GET requests to /flowers by ID' });
 });
 
 // Delete Flower by ID
-app.delete('/api/products/:id', (req, res) => {
-    res.status(200).json({ msg: 'Handling DELETE requests to /products by ID'});
+app.delete('/api/flowers/:id', (req, res) => {
+    res.status(200).json({ msg: 'Handling DELETE requests to /flowers by ID'});
 });
 
 
@@ -124,6 +231,8 @@ app.delete('/api/products/:id', (req, res) => {
 ///////////////////
 // Get order
 app.get('/api/orders', (req, res) => {
+  console.log("ordersList index");
+  res.json(ordersList);
   res.status(200).json({ msg: 'Order fetched!' });
 });
 
