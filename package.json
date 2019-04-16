@@ -1,12 +1,12 @@
 {
   "name": "sei_1_project_1",
   "version": "1.0.0",
-  "description": "",
+  "description": "First projects teams Challenges - Build an Express App",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Compass Rose",
+  "author": "Compass Rose Teams Johnson_Kanjamad_Joseph",
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.18.3",

@@ -99,13 +99,6 @@ nav {
     width: 15vw;
 }
 
-.forms {
-    display: flex;
-    flex-direction: column;
-    width: 50vw;
-    margin: 10vh auto;
-}
-
 .formInputFlowers {
     display: flex;
     flex-direction: row;
