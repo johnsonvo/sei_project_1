@@ -5,20 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.4.0.js" integrity="sha256-DYZMCC8HTC+QDr5QNaIcfR7VSPtcISykd+6eSmBW5qo=" crossorigin="anonymous"></script>
     <title>Compass Rose</title>
 </head>
 <body>
-    <header>
+    <header class="header" id="landingPage">
         <img class="navImg" src="/images/crTitle.png" alt="Compass Rose Logo" />
     </header>
     <main>
         <nav>
-                <a class="topNav">Market</a>
-                <a class="topNav">Profile</a>
-                <a class="topNav">Hold</a>
+            <a class="topNav" id="navMarket">Market</a>
+            <a class="topNav" id="navProfile">Profile</a>
+            <a class="topNav" id="navCreateFlower">Flower</a>
+            <a class="topNav" id="navCreateUser">Create</a>
         </nav>
         <div class="marketPlace">
+            <img class="flowerLogo" src="/images/crTitle.png" alt="Compass Rose Logo" />
             <div class="searchMarket">
                 <form class="searchBar">
                     <input type="text" placeholder="Search for Flower" name="search">
