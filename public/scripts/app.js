@@ -1,6 +1,5 @@
 console.log('sanity check');
 
-<<<<<<< HEAD
 // Reveal Market
 $('#landingPage').click( () => {
     $('.marketPlace').css('display', 'block');
@@ -38,7 +37,7 @@ $('#navCreateFlower').click( () => {
     $('.userCreatePage').css('display', 'none');
     $('.profilePage').css('display', 'none');
 });
-=======
+
 var usersList;
 var allUsers = [];
 
@@ -146,4 +145,3 @@ const deleteUserSuccess = json => {
     const deleteUserError = ()=> {
     console.log('deleteuser error!');
 };
->>>>>>> kanjamad-sprint2
