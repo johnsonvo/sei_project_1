@@ -82,6 +82,20 @@ nav {
     width: 15vw;
 }
 
+.forms {
+    display: flex;
+    flex-direction: column;
+    width: 60vw;
+    margin: 0 auto;
+}
+
+.formInput {
+    display: flex;
+    flex-direction: column;
+}
+
+
+
 /* Profile __________________________________________ */
 .profilePage {
     display: none;
