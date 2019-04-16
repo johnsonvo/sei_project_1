@@ -6,14 +6,19 @@ Body {
     font-weight: 300;
 }
 
-header {
-    display: flex;
+.header {
+    display: block;
     height: 100vh;
+}
+
+main {
+    display: none;
 }
 
 /* Nav __________________________________________ */
 .navImg {
     width: 60vw;
+    height: auto;
     margin: 30vh 5vw;
 }
 
@@ -34,7 +39,11 @@ nav {
 }
 
 /* Market __________________________________________ */
-.searchMarket{
+.marketPlace {
+    display: none;
+}
+
+.searchMarket {
     display: flex;
     justify-content: flex-end;
     margin-right: 1vw;
@@ -43,19 +52,20 @@ nav {
 .flowers {
     display: flex;
     flex-wrap: wrap;
+    justify-content: flex-start;
 }
 
 .flowerImgs {
-    margin: 1vw;
-    width: 23vw;
-    height: 23vw;
+    margin: 1vw auto;
+    width: 22vw;
+    height: 22vw;
     border: 1px solid black;
 }
 
 /* Create User __________________________________________ */
 .userCreatePage {
+    display: none;
     height: 100vh;
-    border: 1px solid black;
 }
 
 .userLogo {
@@ -64,8 +74,8 @@ nav {
 
 /* Create Flower __________________________________________ */
 .flowerCreatePage {
+    display: none;
     height: 100vh;
-    border: 1px solid black;
 }
 
 .flowerLogo {
@@ -74,8 +84,8 @@ nav {
 
 /* Profile __________________________________________ */
 .profilePage {
+    display: none;
     height: 100vh;
-    border: 1px solid black;
 }
 
 .profileLogo {
