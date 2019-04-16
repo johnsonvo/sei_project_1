@@ -6,12 +6,68 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-    <title>Project 1</title>
+    <title>Compass Rose</title>
 </head>
 <body>
-    <h1>Project 1</h1>
-    
+    <header>
+        <img class="navImg" src="/images/crTitle.png" alt="Compass Rose Logo" />
+    </header>
+    <main>
+        <nav>
+                <a class="topNav">Market</a>
+                <a class="topNav">Profile</a>
+                <a class="topNav">Hold</a>
+        </nav>
+        <div class="marketPlace">
+            <div class="searchMarket">
+                <form class="searchBar">
+                    <input type="text" placeholder="Search for Flower" name="search">
+                    <button type="submit">Search</i></button>
+                </form>
+            </div>
+            <div class="flowers">
+                    <a class="flowerImgs"></a>
+                    <a class="flowerImgs"></a>
+                    <a class="flowerImgs"></a>
+                    <a class="flowerImgs"></a>
+                    <a class="flowerImgs"></a>
+                    <a class="flowerImgs"></a>
+                    <a class="flowerImgs"></a>
+                    <a class="flowerImgs"></a>
+                    <a class="flowerImgs"></a>
+            </div>
+        </div>
+        <div class="userCreatePage">
+            <img class="userLogo" src="/images/crTitle.png" alt="Compass Rose Logo" />
+            <h2>Create User</h2>
+            <div class="forms">
+                    <input type="text" name="img" placeholder="Image URL" />
+                    <input type="text" name="fullName" placeholder="Full Name" />
+                    <input type="email" name="email" placeholder="Email" />
+                    <input type="text" name="dateOfBirth" placeholder="Date of Birth" />
+            </div>
+            <input type="submit" value="Register">
+        </div>
+        <div class="flowerCreatePage">
+            <img class="flowerLogo" src="/images/crTitle.png" alt="Compass Rose Logo" />
+            <h2>Create Flower</h2>
+            <div class="forms">
+                    <input type="text" name="img" placeholder="Image URL" />
+                    <input type="text" name="name" placeholder="Flower Name" />
+                    <input type="text" name="type" placeholder="Type of Flower" />
+                    <input type="text" name="season" placeholder="Season of Bloom" />
+                    <input type="text" name="price" placeholder="How Much per Clipping" />
+            </div>
+            <input type="submit" value="Register">
+        </div>
+        <div class="profilePage">
+            <img class="profileLogo" src="/images/crTitle.png" alt="Compass Rose Logo" />
+            <h2>User Profile</h2>
+        </div>
+    </main>
+    <footer>
+
+    </footer>
     <script src="scripts/app.js"></script>
 </body>
 </html>
