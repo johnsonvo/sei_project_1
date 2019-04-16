@@ -4,12 +4,11 @@ const Schema = mongoose.Schema;
 const FlowerSchema = new Schema({
     
     name:String,
-    type:String,
     // img url will use String
     img: String,
-    price: Number,
+    price: String,
     season:String,
-    orders:Number,
+    orders: Number,
     created_date:{type:Date, default:Date.now},
 });
 

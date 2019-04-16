@@ -5,9 +5,9 @@ mongoose.connect(DB_URL, {useNewUrlParser: true, useFindAndModify: false})
   .then(() => console.log('MongoDB connected...'))
   .catch((err) => console.log(err));
 
-
-
-module.exports.Project = require('./project'); 
-module.exports.User = require('./user'); 
-module.exports.Order = require('./order'); 
-module.exports.Flower = require('./flower'); 
+module.exports = {
+  Project: require('./project'),
+  User : require('./user'),
+  Order : require('./order'),
+  Flower : require('./flower'),
+};
