@@ -21,9 +21,9 @@ app.get('/', (req,res) => {
 });
 
 /////////////////////
-/////// USERS ///////
+/// USERS ROUTES ///
 ////////////////////
-// Get User (Index)
+// Get User
 app.get('/api/users', (req, res) => {
     res.status(200).json({ msg: 'Handling GET requests to /users' });
 });
@@ -33,28 +33,34 @@ app.post('/api/users', (req, res) => {
     res.status(200).json({ msg: 'Handling POST requests to /users' });
 });
 
-// Get User by ID
-app.get('/api/users/:id', (req, res) => {
-  res.status(200).json({ msg: 'Handling GET requests to /users by ID' });
+// Get User by ID v.02
+app.get('/api/users/:userId', (req, res) => {
+  const userId = req.params.userId;
+  if (userId === 'special') {
+    res.status(200).json({
+      msg: 'You discovered the special id',
+      id: userId,
+    });
+  } else {
+    res.status(200).json({ msg: 'You passed an id' });
+  }
 });
 
-
-// Update User by ID
-app.put('/api/users/:id', (req, res) => {
-  res.status(200).json({ msg: 'Handling PUT requests to /users by ID' });
+// Update User by ID v.02
+app.put("/api/users/:userId", (req, res) => {
+  res.status(200).json({ msg: 'Updated user!' });
 });
 
 // Delete User by ID
-app.delete('/api/users/:id', (req, res) => {
-    res.status(200).json({ msg: 'Handling PUT requests to /users by ID' })
+app.delete('/api/users/:userId', (req, res) => {
+    res.status(200).json({ msg: 'Deleted user!' })
 });
 
-//
 
 
 
 /////////////////////
-///// FLOWERS //////
+// FLOWERS ROUTES //
 ///////////////////
 // Get flower
 app.get('/api/flowers', (req, res) => {
@@ -82,7 +88,9 @@ app.delete('/api/flowers/:id', (req, res) => {
 });
 
 
-
+/////////////////////
+/// ORDER ROUTES ///
+///////////////////
 
 
 
