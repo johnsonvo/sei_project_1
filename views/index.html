@@ -43,23 +43,29 @@
             <img class="userLogo" src="/images/crTitle.png" alt="Compass Rose Logo" />
             <h2>Create User</h2>
             <div class="forms">
-                    <input type="text" name="img" placeholder="Image URL" />
-                    <input type="text" name="fullName" placeholder="Full Name" />
-                    <input type="email" name="email" placeholder="Email" />
-                    <input type="text" name="dateOfBirth" placeholder="Date of Birth" />
+                    <div class="formInputUsers">
+                            <input class="formImg" type="text" name="img" placeholder="Image URL" />
+                        <div class="textFields">
+                            <input type="text" name="fullName" placeholder="Full Name" />
+                            <input type="email" name="email" placeholder="Email" />
+                            <input type="text" name="dateOfBirth" placeholder="Date of Birth" />
+                        </div>
+                    </div>
+                    <input type="submit" value="Register">
             </div>
-            <input type="submit" value="Register">
         </div>
         <div class="flowerCreatePage">
             <img class="flowerLogo" src="/images/crTitle.png" alt="Compass Rose Logo" />
             <h2>Create Flower</h2>
             <div class="forms">
-                <div class="formInput">
-                    <input type="text" name="img" placeholder="Image URL" />
-                    <input type="text" name="name" placeholder="Flower Name" />
-                    <input type="text" name="type" placeholder="Type of Flower" />
-                    <input type="text" name="season" placeholder="Season of Bloom" />
-                    <input type="text" name="price" placeholder="How Much per Clipping" />
+                <div class="formInputFlowers">
+                    <input class="formImg" type="text" name="img" placeholder="Image URL" />
+                    <div class="textFields">
+                        <input type="text" name="name" placeholder="Flower Name" />
+                        <input type="text" name="type" placeholder="Type of Flower" />
+                        <input type="text" name="season" placeholder="Season of Bloom" />
+                        <input type="text" name="price" placeholder="How Much per Clipping" />
+                    </div>
                 </div>
                 <input type="submit" value="Register">
             </div>
@@ -67,6 +73,35 @@
         <div class="profilePage">
             <img class="profileLogo" src="/images/crTitle.png" alt="Compass Rose Logo" />
             <h2>User Profile</h2>
+            <div class="profileData">
+                    <img class="profileImg" src="#" alt="Profile Picture" />
+                    <div class="profileTextFields">
+                        <p>Name</p>
+                        <p>email</p>
+                        <p>Date of Birth</p>
+                        <p>Number of Products</p>
+                    </div>
+            </div>
+            <div class="profileContent">
+                <div class="productFavoriteButtons">
+                    <button class="productButton">Products</button>
+                    <button class="favoriteButton">Favorites</button>
+                </div>
+                <div class="products">
+                    <a class="productImgs">Product 1</a>
+                    <a class="productImgs">Product 2</a>
+                    <a class="productImgs">Product 3</a>
+                    <a class="productImgs">Product 4</a>
+                    <a class="productImgs">Product 5</a>
+                </div>
+                <div class="favorites">
+                    <a class="favoriteImgs">Product 1</a>
+                    <a class="favoriteImgs">Product 2</a>
+                    <a class="favoriteImgs">Product 3</a>
+                    <a class="favoriteImgs">Product 4</a>
+                    <a class="favoriteImgs">Product 5</a>
+                </div>
+            </div>
         </div>
     </main>
     <footer>
