@@ -38,6 +38,98 @@ app.use((req, res, next) => {
 //   });
 // });
 
+/////////////////////
+/// SEED DATA ///
+////////////////////
+const usersList = [
+  {
+    fullName: "Leanne Graham",
+    email: "Sincere@april.biz",
+    dob: "2/11/1988",
+    products: "Rose"
+  },
+  {
+    fullName: "Ervin Howell",
+    email: "Shanna@melissa.tv",
+    dob: "2/09/1900",
+    products: "Sunflower"
+  },
+  {
+    fullName: "Clementine Bauch",
+    email: "Nathan@yesenia.net",
+    dob: "12/1/1957",
+    products: "Canation"
+  },
+  {
+    fullName: "Patricia Lebsack",
+    email: "Julianne.OConner@kory.org",
+    dob: "15/08/2000",
+    products: "Rose"
+  }
+];
+
+const flowersList = [
+  {
+    name: "Aconite",
+    img:
+      "https://proflowers.wpengine.com/wp-content/plugins/pf-flowertypes/image/winter-aconite-720790.jpg",
+    price: "$12",
+    season: "Early Spring",
+    orders: 12
+  },
+  {
+    name: "Ageratum",
+    img:
+      "https://proflowers.wpengine.com/wp-content/plugins/pf-flowertypes/image/ageratum-773201.jpg",
+    price: "$11",
+    season: "Mid‑Summer - Mid‑Fall",
+    orders: 15
+  },
+  {
+    name: "Allium",
+    img:
+      "https://proflowers.wpengine.com/wp-content/plugins/pf-flowertypes/image/purple-882161.jpg",
+    price: "$11",
+    season: "Late Spring - Mid‑Summer",
+    orders: 11
+  },
+  {
+    name: "Anemone",
+    img:
+      "https://proflowers.wpengine.com/wp-content/plugins/pf-flowertypes/image/summer-anemone-224501.jpg",
+    price: "$10",
+    season: "Mid Spring - Mid‑Fall",
+    orders: 10
+  }
+];
+
+const ordersList = [
+  {
+    userId: 1,
+    quantity: 3,
+    price: "$100",
+    productId: 12
+  },
+  {
+    userId: 2,
+    quantity: 4,
+    price: "$200",
+    productId: 13
+  },
+  {
+    userId: 3,
+    quantity: 6,
+    price: "$300",
+    productId: 14
+  },
+  {
+    userId: 4,
+    quantity: 7,
+    price: "$500",
+    productId: 15
+  }
+];
+
 //Serve Static Assets
 app.use(express.static(__dirname + '/public'));
 
@@ -51,21 +143,21 @@ app.get('/', (req,res) => {
 /// USERS ROUTES ///
 ////////////////////
 // Get User
-// app.get('/api/users', (req, res) => {
-//   console.log("usersList index");
-//   res.json(usersList);
-//     // res.status(200).json({ msg: 'Handling GET requests to /users' });
-// });
-
-app.get("/api/users", (req, res) => {
-  db.Users.find((err, users) => {
-    if (err) {
-      console.log('index err: ' + err);
-      res.sendStatus(500);
-    }
-    res.json(users);
-  });
+app.get('/api/users', (req, res) => {
+  console.log("usersList index");
+  res.json(usersList);
+    // res.status(200).json({ msg: 'Handling GET requests to /users' });
 });
+
+// app.get("/api/users", (req, res) => {
+//   db.Users.find((err, users) => {
+//     if (err) {
+//       console.log('index err: ' + err);
+//       res.sendStatus(500);
+//     }
+//     res.json(users);
+//   });
+// });
 
 // Create User
 app.post('/api/users', (req, res) => {
