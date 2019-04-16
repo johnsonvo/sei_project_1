@@ -46,57 +46,25 @@ app.get('/', (req,res) => {
     res.sendFile('views/index.html', {root: __dirname});
 });
 
-/////////////////////
-//// SEED DATA /////
-//// TODO: Delete////
-////////////////////
-const users_list = [
-  {
-    fullName: "Leanne Graham",
-    email: "Sincere@april.biz",
-    dob: "2/11/1988",
-    products: "Rose"
-  },
-  {
-    fullName: "Ervin Howell",
-    email: "Shanna@melissa.tv",
-    dob: "2/09/1900",
-    products: "Sunflower"
-  },
-];
-
-const flowers_list = [
-  {
-    name: "Aconite",
-    img:"https://proflowers.wpengine.com/wp-content/plugins/pf-flowertypes/image/winter-aconite-720790.jpg",
-    price: "$12",
-    season: "Early Spring",
-    orders: 12,
-  },
-];
-
-const orders_list = [
-  {
-    userId: 1,
-    quantity: 3,
-    price: "$100",
-    productId:12,
-
-  },
-  {
-    userId: 2,
-    quantity: 4,
-    price: "$200",
-    productId:13,
-  },
-];
 
 /////////////////////
 /// USERS ROUTES ///
 ////////////////////
 // Get User
-app.get('/api/users', (req, res) => {
-    res.status(200).json({ msg: 'Handling GET requests to /users' });
+// app.get('/api/users', (req, res) => {
+//   console.log("usersList index");
+//   res.json(usersList);
+//     // res.status(200).json({ msg: 'Handling GET requests to /users' });
+// });
+
+app.get("/api/users", (req, res) => {
+  db.Users.find((err, users) => {
+    if (err) {
+      console.log('index err: ' + err);
+      res.sendStatus(500);
+    }
+    res.json(users);
+  });
 });
 
 // Create User
@@ -131,9 +99,11 @@ app.delete('/api/users/:userId', (req, res) => {
 /////////////////////
 // FLOWERS ROUTES //
 ///////////////////
-// Get flower
-app.get('/api/flowers', (req, res) => {
-    res.status(200).json({ msg: 'Handling GET requests to /flowers' });
+// Get Flower
+app.get("/api/flowers", (req, res) => {
+  console.log("flowersList index");
+  res.json(flowersList);
+  res.status(200).json({ msg: "Handling GET requests to /flowers" });
 });
 
 // Create Flower
@@ -169,6 +139,8 @@ app.delete('/api/flowers/:id', (req, res) => {
 ///////////////////
 // Get order
 app.get('/api/orders', (req, res) => {
+  console.log("ordersList index");
+  res.json(ordersList);
   res.status(200).json({ msg: 'Order fetched!' });
 });
 

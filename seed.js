@@ -24,7 +24,7 @@ const users_list = [
     fullName:"Patricia Lebsack",
     email:"Julianne.OConner@kory.org",
     dob: "15/08/2000",
-    products:'Rose',
+    products:"Rose",
 },
 
 ];

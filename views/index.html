@@ -39,17 +39,30 @@
                     <a class="flowerImgs"></a>
             </div>
         </div>
+
+<!--------------
+    user 
+---------------->
         <div class="userCreatePage">
             <img class="userLogo" src="/images/crTitle.png" alt="Compass Rose Logo" />
             <h2>Create User</h2>
-            <div class="forms">
+            <form id="newUserForm">
+                <div class="forms">
                     <input type="text" name="img" placeholder="Image URL" />
                     <input type="text" name="fullName" placeholder="Full Name" />
                     <input type="email" name="email" placeholder="Email" />
                     <input type="text" name="dateOfBirth" placeholder="Date of Birth" />
+                </div>
+                <button type="submit" value="Register"> Register</button>
+            </form>
+                <div id='userTarget'>
+                
             </div>
-            <input type="submit" value="Register">
         </div>
+
+<!--------------
+    flower 
+---------------->
         <div class="flowerCreatePage">
             <img class="flowerLogo" src="/images/crTitle.png" alt="Compass Rose Logo" />
             <h2>Create Flower</h2>
@@ -70,6 +83,12 @@
     <footer>
 
     </footer>
+
+<!-- VENDOR SCRIPTS -->
+    <script src="scripts/handlebars-v4.12.js"></script>
+<!-- jQuery -->
+    <script src="scripts/jquery-3.4.0.js"></script>
+<!-- APPLICATION SCRIPTS -->
     <script src="scripts/app.js"></script>
 </body>
 </html>
