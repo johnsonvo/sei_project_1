@@ -5,8 +5,8 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 //Database
-// mongoose.Promise = global.Promise;
-// const db = require('./models');
+mongoose.Promise = global.Promise;
+const db = require('./models');
 
 // BodyParser
 app.use(bodyParser.urlencoded({extended: true}));
