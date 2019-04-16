@@ -91,6 +91,16 @@ app.delete('/api/flowers/:id', (req, res) => {
 /////////////////////
 /// ORDER ROUTES ///
 ///////////////////
+// Get order
+app.get("/api/orders", (req, res) => {
+  res.status(200).json({ msg: "Order fetched!" });
+});
+
+// Create order
+app.post("/api/orders", (req, res) => {
+  res.status(201).json({ msg: "Order created!" });
+});
+
 
 
 
