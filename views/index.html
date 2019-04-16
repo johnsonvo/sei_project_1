@@ -9,6 +9,9 @@
     <title>Compass Rose</title>
 </head>
 <body>
+<!--------------
+    Landing Page 
+---------------->
     <header class="header" id="landingPage">
         <img class="navImg" src="/images/crTitle.png" alt="Compass Rose Logo" />
     </header>
@@ -19,6 +22,9 @@
             <a class="topNav" id="navCreateFlower">Flower</a>
             <a class="topNav" id="navCreateUser">Create</a>
         </nav>
+<!--------------
+    Market Place 
+---------------->
         <div class="marketPlace">
             <img class="flowerLogo" src="/images/crTitle.png" alt="Compass Rose Logo" />
             <div class="searchMarket">
@@ -39,37 +45,92 @@
                     <a class="flowerImgs"></a>
             </div>
         </div>
+
+<!--------------
+    Create User 
+---------------->
         <div class="userCreatePage">
             <img class="userLogo" src="/images/crTitle.png" alt="Compass Rose Logo" />
             <h2>Create User</h2>
-            <div class="forms">
-                    <input type="text" name="img" placeholder="Image URL" />
-                    <input type="text" name="fullName" placeholder="Full Name" />
-                    <input type="email" name="email" placeholder="Email" />
-                    <input type="text" name="dateOfBirth" placeholder="Date of Birth" />
-            </div>
-            <input type="submit" value="Register">
+            <form class="forms" id="newUserForm">
+                <div class="formInputUsers">
+                    <input class="formImg" type="text" name="img" placeholder="Image URL" />
+                    <div class="textFields">
+                        <input type="text" name="fullName" placeholder="Full Name" />
+                        <input type="email" name="email" placeholder="Email" />
+                        <input type="text" name="dateOfBirth" placeholder="Date of Birth" />
+                    </div>
+                </div>
+                <button type="submit" value="Register">Register</button>
+            </form>
         </div>
+<!--------------
+    Create Flower 
+---------------->
         <div class="flowerCreatePage">
             <img class="flowerLogo" src="/images/crTitle.png" alt="Compass Rose Logo" />
             <h2>Create Flower</h2>
-            <div class="forms">
-                    <input type="text" name="img" placeholder="Image URL" />
-                    <input type="text" name="name" placeholder="Flower Name" />
-                    <input type="text" name="type" placeholder="Type of Flower" />
-                    <input type="text" name="season" placeholder="Season of Bloom" />
-                    <input type="text" name="price" placeholder="How Much per Clipping" />
-            </div>
-            <input type="submit" value="Register">
+            <form class="forms" id="newFlowerForm">
+                <div class="formInputFlowers">
+                    <input class="formImg" type="text" name="img" placeholder="Image URL" />
+                    <div class="textFields">
+                        <input type="text" name="name" placeholder="Flower Name" />
+                        <input type="text" name="type" placeholder="Type of Flower" />
+                        <input type="text" name="season" placeholder="Season of Bloom" />
+                        <input type="text" name="price" placeholder="How Much per Clipping" />
+                    </div>
+                </div>
+                <button type="submit" value="Register">Create Flower</button>
+            </form>
         </div>
+<!--------------
+    Profile 
+---------------->
         <div class="profilePage">
             <img class="profileLogo" src="/images/crTitle.png" alt="Compass Rose Logo" />
             <h2>User Profile</h2>
+            <div class="profileData">
+                    <img class="profileImg" src="#" alt="Profile Picture" />
+                    <div class="profileTextFields">
+                        <p>Name</p>
+                        <p>email</p>
+                        <p>Date of Birth</p>
+                        <p>Number of Products</p>
+                    </div>
+            </div>
+            <div class="profileContent">
+                <div class="productFavoriteButtons">
+                    <button class="productButton" id="showProduct">Products</button>
+                    <button class="favoriteButton" id="showFavorite">Favorites</button>
+                </div>
+                <div class="products">
+                    <a class="productImgs">Product 1</a>
+                    <a class="productImgs">Product 2</a>
+                    <a class="productImgs">Product 3</a>
+                    <a class="productImgs">Product 4</a>
+                    <a class="productImgs">Product 5</a>
+                </div>
+                <div class="favorites">
+                    <a class="favoriteImgs">Favorite 1</a>
+                    <a class="favoriteImgs">Favorite 2</a>
+                    <a class="favoriteImgs">Favorite 3</a>
+                    <a class="favoriteImgs">Favorite 4</a>
+                    <a class="favoriteImgs">Favorite 5</a>
+                </div>
+            </div>
+            <div id='userTarget'>    
+            </div>
         </div>
     </main>
     <footer>
 
     </footer>
+
+<!-- VENDOR SCRIPTS -->
+    <script src="scripts/handlebars-v4.12.js"></script>
+<!-- jQuery -->
+    <script src="scripts/jquery-3.4.0.js"></script>
+<!-- APPLICATION SCRIPTS -->
     <script src="scripts/app.js"></script>
 </body>
 </html>
