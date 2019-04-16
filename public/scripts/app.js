@@ -15,7 +15,7 @@ $(document).ready(()=>{
 
     $('#newUserForm').on('submit', e => {
         e.preventDefault();
-        console.log('get new user.....!!!!!!!!!');
+        console.log('submit and get new user.....!!!!!!!!!');
     $.ajax({
         method: 'POST',
         url: '/api/users',
@@ -54,6 +54,7 @@ const getUserHtml = user =>{
 };
 
 const getAllUsersHtml = users => {
+    console.log(users)
     return users.map(getUserHtml).join("");
 };
 
