@@ -191,36 +191,45 @@ app.delete('/api/users/:userId', (req, res) => {
 ///////////////////
 // Get Flower
 app.get("/api/flowers", (req, res) => {
-  console.log("flowersList index");
-  res.json(flowersList);
-  res.status(200).json({ msg: "Handling GET requests to /flowers" });
+  db.Flower.find((err, flowers) => {
+    if (err) {
+      console.log('error: ' + err);
+      res.sendStatus(500);
+    }
+    res.json(flowers);
+  });
 });
 
 // Create Flower
 app.post('/api/flowers', (req, res) => {
-  const flower = {
-    name: req.body.name,
-    price: req.body.price
-  };
-  res.status(201).json({
-    msg: 'Handling POST requests to /flowers',
-    createdFlower: flower
+  db.Flower.create(req.body, (err, newFlower) => {
+    if (err) return res.status(500).json({ msg: 'Something goofed. Please try again!' });
+    res.json(newFlower);
   });
 });
 
 // Get Flower by ID
 app.get('/api/flowers/:id', (req, res) => {
-  res.status(200).json({ msg: 'Handling GET requests to /flowers by ID' });
+  db.Flower.findById(req.params.id, (err, flower) => {
+    if (err) return res.status(500).json({ msg: "Flower does not exist" });
+    res.json(flower);
+  });
 });
 
 // Update Flower by ID
 app.put('/api/flowers/:id', (req, res) => {
-  res.status(200).json({ msg: 'Handling GET requests to /flowers by ID' });
+  db.Flower.findByIdAndUpdate(req.params.id, (err, updatedFlower) => {
+    if (err) return res.status(500).json({ msg: "Flower does not exist" });
+    res.json(updatedFlower);
+  });
 });
 
 // Delete Flower by ID
 app.delete('/api/flowers/:id', (req, res) => {
-    res.status(200).json({ msg: 'Handling DELETE requests to /flowers by ID'});
+  db.Flower.findByIdAndRemove(req.params.id, (err, deletedFlower) => {
+    if (err) return res.status(500).json({ msg: "Flower does not exist" });
+    res.json(deletedFlower);
+  });
 });
 
 
