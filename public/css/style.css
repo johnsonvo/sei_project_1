@@ -1,0 +1,109 @@
+/* All __________________________________________ */
+Body {
+    display: flex;
+    flex-direction: column;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 300;
+}
+
+.header {
+    display: block;
+    height: 100vh;
+}
+
+main {
+    display: none;
+}
+
+/* Nav __________________________________________ */
+.navImg {
+    width: 60vw;
+    height: auto;
+    margin: 30vh 5vw;
+}
+
+nav {
+    position: fixed;
+    right: 0;
+    text-align: center;
+    width: 20vw;
+    background-color: #BC202F;
+}
+
+.topNav {
+    padding: .5vw;
+    font-size: 2vh;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 900;
+    color: white;
+}
+
+/* Market __________________________________________ */
+.marketPlace {
+    display: none;
+}
+
+.searchMarket {
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 1vw;
+}
+
+.flowers {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+}
+
+.flowerImgs {
+    margin: 1vw auto;
+    width: 22vw;
+    height: 22vw;
+    border: 1px solid black;
+}
+
+/* Create User __________________________________________ */
+.userCreatePage {
+    display: none;
+    height: 100vh;
+}
+
+.userLogo {
+    width: 15vw;
+}
+
+/* Create Flower __________________________________________ */
+.flowerCreatePage {
+    display: none;
+    height: 100vh;
+}
+
+.flowerLogo {
+    width: 15vw;
+}
+
+/* Profile __________________________________________ */
+.profilePage {
+    display: none;
+    height: 100vh;
+}
+
+.profileLogo {
+    width: 15vw;
+}
+
+/* Ipad Screen */
+@media only screen and (max-width: 770px) {
+    .flowerImgs{
+        width: 30.666vw;
+        height: 30.666vw;
+    }
+}
+
+/* Iphone Screen */
+@media only screen and (max-width: 500px) {
+    .flowerImgs{
+        width: 46vw;
+        height: 46vw;
+    }
+}
