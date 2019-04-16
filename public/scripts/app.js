@@ -92,11 +92,11 @@ $(document).ready(()=>{
 const getUserHtml = user =>{
     return `<hr>
             <p>
-            <b>${user. fullName}</b>
-            <b>${user. email}</b>
-            <b>${user. image}</b>
-            <b>${user. dob}</b>
-            <b>${user. products}</b>
+            <strong>${user. fullName}</strong>
+            <strong>${user. email}</strong>
+            <strong>${user. image}<strong>
+            <strong>${user. dob}<strong>
+            <strong>${user. products}<strong>
             <button type="button" name="button" class="deleteBtn btn btn-danger pull-right" data-id=${user._id}>Delete</button>
             </p>`;
 
