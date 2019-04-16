@@ -144,47 +144,45 @@ app.get('/', (req,res) => {
 ////////////////////
 // Get User
 app.get('/api/users', (req, res) => {
-  console.log("usersList index");
-  res.json(usersList);
-    // res.status(200).json({ msg: 'Handling GET requests to /users' });
+  db.User.find((err, users) => {
+    if (err) {
+      console.log('err: ' + err);
+      res.sendStatus(500);
+    }
+    res.json(users);
+  });
 });
-
-// app.get("/api/users", (req, res) => {
-//   db.Users.find((err, users) => {
-//     if (err) {
-//       console.log('index err: ' + err);
-//       res.sendStatus(500);
-//     }
-//     res.json(users);
-//   });
-// });
 
 // Create User
 app.post('/api/users', (req, res) => {
-    res.status(200).json({ msg: 'Handling POST requests to /users' });
+  db.User.create(req.body, (err, newUser) => {
+    if (err) return res.status(500).json({msg: 'Something went wrong. Please try again!'});
+    res.json(newUser);
+  });
 });
 
 // Get User by ID v.02
 app.get('/api/users/:userId', (req, res) => {
-  const userId = req.params.userId;
-  if (userId === 'special') {
-    res.status(200).json({
-      msg: 'You discovered the special id',
-      id: userId,
-    });
-  } else {
-    res.status(200).json({ msg: 'You passed an id' });
-  }
+  db.User.findById(req.params.id, (err, user) => {
+    if (err) return res.status(400).json({ msg: "User ID not found" });
+    res.json(newUser);
+  })
 });
 
 // Update User by ID
 app.put("/api/users/:userId", (req, res) => {
-  res.status(200).json({ msg: 'Updated user!' });
+  db.User.findByIdAndUpdate(req.params.id, req.body, {new: true}, (err, updatedUser) => {
+    if (err) return res.status(400).json({ msg: "User ID not found" });
+    res.json(updatedUser);
+  });
 });
 
 // Delete User by ID
 app.delete('/api/users/:userId', (req, res) => {
-    res.status(200).json({ msg: 'Deleted user!' })
+  db.User.findByIdAndRemove(req.params.id, (err, deletedUser) => {
+    if (err) return res.status(400).json({ msg: "User ID not found" });
+    res.json(deletedUser);
+  });
 });
 
 
