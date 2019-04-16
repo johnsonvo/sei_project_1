@@ -49,6 +49,9 @@ $('#showFavorite').click( () => {
     $('.favorites').css('display', 'flex');
     $('.products').css('display', 'none');
 });
+
+
+
 var usersList;
 var allUsers = [];
 
