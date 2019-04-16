@@ -161,11 +161,11 @@ app.post('/api/users', (req, res) => {
   });
 });
 
-// Get User by ID v.02
+// Get User by ID
 app.get('/api/users/:userId', (req, res) => {
-  db.User.findById(req.params.id, (err, user) => {
+  db.User.findById(req.params.id, (err, fetchedUser) => {
     if (err) return res.status(400).json({ msg: "User ID not found" });
-    res.json(newUser);
+    res.json(fetchedUser);
   })
 });
 
@@ -210,15 +210,15 @@ app.post('/api/flowers', (req, res) => {
 
 // Get Flower by ID
 app.get('/api/flowers/:id', (req, res) => {
-  db.Flower.findById(req.params.id, (err, flower) => {
+  db.Flower.findById(req.params.id, (err, fetchedFlower) => {
     if (err) return res.status(500).json({ msg: "Flower does not exist" });
-    res.json(flower);
+    res.json(fetchedFlower);
   });
 });
 
 // Update Flower by ID
 app.put('/api/flowers/:id', (req, res) => {
-  db.Flower.findByIdAndUpdate(req.params.id, (err, updatedFlower) => {
+  db.Flower.findByIdAndUpdate(req.params.id, {new: true}, (err, updatedFlower) => {
     if (err) return res.status(500).json({ msg: "Flower does not exist" });
     res.json(updatedFlower);
   });
@@ -238,36 +238,44 @@ app.delete('/api/flowers/:id', (req, res) => {
 ///////////////////
 // Get order
 app.get('/api/orders', (req, res) => {
-  console.log("ordersList index");
-  res.json(ordersList);
-  res.status(200).json({ msg: 'Order fetched!' });
+  db.Order.find((err, orders) => {
+    if (err) {
+      console.log('error: ' + err);
+      res.sendStatus(500);
+    }
+    res.json(orders);
+  });
 });
 
 // Create order
 app.post('/api/orders', (req, res) => {
-  const order = {
-    productId: req.body.productId,
-    quantity: req.body.quantity
-  }
-  res.status(201).json({
-    msg: 'Order created!',
-    order: order
+  db.Order.create(req.body, (err, newOrder) => {
+    if (err) return res.status(500).json({ msg: "Order does not exist" });
+    res.json(newOrder);
   });
 });
 
 // Get order by ID
 app.get('/api/orders/:orderId', (req, res) => {
-  res.status(200).json({
-    msg: 'Order fetched!',
-    orderId: req.params.orderId
-   });
+  db.Order.findById(req.params.id, (err, fetchedOrder) => {
+    if (err) return res.status(500).json({ msg: "Order does not exist" });
+    res.json(fetchedOrder);
+  });
+});
+
+// Update order by ID
+app.get('/api/orders/:orderId', (req, res) => {
+  db.Order.findByIdAndUpdate(req.params.id, {new: true}, (err, updatedOrder) => {
+    if (err) return res.status(500).json({ msg: "Order does not exist" });
+    res.json(updatedOrder);
+  });
 });
 
 // Delete order by ID
 app.delete('/api/orders/:orderId', (req, res) => {
-  res.status(200).json({
-    msg: 'Order deleted!',
-    orderId: req.params.orderId
+  db.Order.findByIdAndRemove(req.params.id, (err, deletedOrder) => {
+    if (err) return res.status(500).json({ msg: "Order does not exist" });
+    res.json(deletedOrder);
   });
 });
 
