@@ -37,3 +37,15 @@ $('#navCreateFlower').click( () => {
     $('.userCreatePage').css('display', 'none');
     $('.profilePage').css('display', 'none');
 });
+
+// Reveal Profile Products
+$('#showProduct').click( () => {
+    $('.products').css('display', 'flex');
+    $('.favorites').css('display', 'none');
+});
+
+// Reveal Profile Favorites
+$('#showFavorite').click( () => {
+    $('.favorites').css('display', 'flex');
+    $('.products').css('display', 'none');
+});

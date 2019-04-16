@@ -169,7 +169,7 @@ nav {
 }
 
 .products {
-    display: flex;
+    display: none;
     flex-wrap: wrap;
 }
 
@@ -181,7 +181,7 @@ nav {
 }
 
 .favorites {
-    display: flex;
+    display: none;
     flex-wrap: wrap;
 }
 
