@@ -5,8 +5,8 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 //Database
-mongoose.Promise = global.Promise;
-const db = require('./models');
+// mongoose.Promise = global.Promise;
+// const db = require('./models');
 
 // BodyParser
 app.use(bodyParser.urlencoded({extended: true}));
@@ -23,20 +23,20 @@ app.use((req, res, next) => {
 });
 
 // Error handling
-app.use((req, res, next) => {
-  const error = new Error('Not found');
-  error.status = 404;
-  next(error);
-});
+// app.use((req, res, next) => {
+//   const error = new Error('Not found');
+//   error.status = 404;
+//   next(error);
+// });
 
-app.use((error, req, res, next) => {
-  res.status(error.status || 500);
-  res.json({
-    error: {
-      message: error.message
-    }
-  });
-});
+// app.use((error, req, res, next) => {
+//   res.status(error.status || 500);
+//   res.json({
+//     error: {
+//       message: error.message
+//     }
+//   });
+// });
 
 //Serve Static Assets
 app.use(express.static(__dirname + '/public'));
@@ -72,7 +72,7 @@ app.get('/api/users/:userId', (req, res) => {
   }
 });
 
-// Update User by ID v.02
+// Update User by ID
 app.put("/api/users/:userId", (req, res) => {
   res.status(200).json({ msg: 'Updated user!' });
 });
@@ -83,33 +83,39 @@ app.delete('/api/users/:userId', (req, res) => {
 });
 
 
-
 /////////////////////
 // FLOWERS ROUTES //
 ///////////////////
 // Get flower
-app.get('/api/flowers', (req, res) => {
-    res.status(200).json({ msg: 'Handling GET requests to /flowers' });
+app.get('/api/products', (req, res) => {
+    res.status(200).json({ msg: 'Handling GET requests to /products' });
 });
 
 // Create Flower
-app.post("/api/flowers", (req, res) => {
-  res.status(201).json({ msg: 'Handling POST requests to /flowers' });
+app.post('/api/products', (req, res) => {
+  const flower = {
+    name: req.body.name,
+    price: req.body.price
+  };
+  res.status(201).json({
+    msg: 'Handling POST requests to /products',
+    createdFlower: flower
+  });
 });
 
 // Get Flower by ID
-app.get('/api/flowers/:id', (req, res) => {
-  res.status(200).json({ msg: 'Handling GET requests to /flowers by ID' });
+app.get('/api/products/:id', (req, res) => {
+  res.status(200).json({ msg: 'Handling GET requests to /products by ID' });
 });
 
 // Update Flower by ID
-app.put('/api/flowers/:id', (req, res) => {
-  res.status(200).json({ msg: 'Handling GET requests to /flowers by ID' });
+app.put('/api/products/:id', (req, res) => {
+  res.status(200).json({ msg: 'Handling GET requests to /products by ID' });
 });
 
 // Delete Flower by ID
-app.delete('/api/flowers/:id', (req, res) => {
-    res.status(200).json({ msg: 'Handling DELETE requests to /flowers by ID'});
+app.delete('/api/products/:id', (req, res) => {
+    res.status(200).json({ msg: 'Handling DELETE requests to /products by ID'});
 });
 
 
@@ -117,27 +123,34 @@ app.delete('/api/flowers/:id', (req, res) => {
 /// ORDER ROUTES ///
 ///////////////////
 // Get order
-app.get("/api/orders", (req, res) => {
-  res.status(200).json({ msg: "Order fetched!" });
+app.get('/api/orders', (req, res) => {
+  res.status(200).json({ msg: 'Order fetched!' });
 });
 
 // Create order
-app.post("/api/orders", (req, res) => {
-  res.status(201).json({ msg: "Order created!" });
+app.post('/api/orders', (req, res) => {
+  const order = {
+    productId: req.body.productId,
+    quantity: req.body.quantity
+  }
+  res.status(201).json({
+    msg: 'Order created!',
+    order: order
+  });
 });
 
 // Get order by ID
-app.get("/api/orders/:orderId", (req, res) => {
+app.get('/api/orders/:orderId', (req, res) => {
   res.status(200).json({
-    msg: "Order fetched!",
+    msg: 'Order fetched!',
     orderId: req.params.orderId
    });
 });
 
 // Delete order by ID
-app.delete("/api/orders/:orderId", (req, res) => {
+app.delete('/api/orders/:orderId', (req, res) => {
   res.status(200).json({
-    msg: "Order deleted!",
+    msg: 'Order deleted!',
     orderId: req.params.orderId
   });
 });
