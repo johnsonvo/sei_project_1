@@ -58,7 +58,6 @@ app.delete('/api/users/:userId', (req, res) => {
 
 
 
-
 /////////////////////
 // FLOWERS ROUTES //
 ///////////////////
@@ -69,7 +68,7 @@ app.get('/api/flowers', (req, res) => {
 
 // Create Flower
 app.post("/api/flowers", (req, res) => {
-  res.status(200).json({ msg: 'Handling POST requests to /flowers' });
+  res.status(201).json({ msg: 'Handling POST requests to /flowers' });
 });
 
 // Get Flower by ID
@@ -101,6 +100,21 @@ app.post("/api/orders", (req, res) => {
   res.status(201).json({ msg: "Order created!" });
 });
 
+// Get order by ID
+app.get("/api/orders/:orderId", (req, res) => {
+  res.status(200).json({
+    msg: "Order fetched!",
+    orderId: req.params.orderId
+   });
+});
+
+// Delete order by ID
+app.delete("/api/orders/:orderId", (req, res) => {
+  res.status(200).json({
+    msg: "Order deleted!",
+    orderId: req.params.orderId
+  });
+});
 
 
 
