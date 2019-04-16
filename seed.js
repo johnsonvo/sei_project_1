@@ -115,22 +115,28 @@ db.User.deleteMany({}, (err, users) => {
 
         flowers_list.forEach(flowerData => {
           const user = new db.User({
-            title: flowerData.title,
+            name: flowerData.name,
             image: flowerData.image,
+            price: flowerData.price,
+            season: flowerData.season,
+            orders: flowerData.orders,
             releaseDate: flowerData.releaseDate
           });
 
           db.User.findOne({name: flowerData.user}, (err, foundUser) => {
-            console.log(`found user  ${foundUser.name} for flower ${flower.title}`);
+            console.log(`found user  ${foundUser.name} for flower ${flower.image}`);
             if (err) return console.log(err);
 
             flower.user = foundUser;
             flower.save((err, savedFlower) => {
               if (err) return console.log(err);
-              console.log(`saved ${savedFlower.title} by ${foundUser.name}`);
+              console.log(`saved ${savedFlower.image} by ${foundUser.name}`);
             });
           });
         });
       });
     });
   });
+
+
+
