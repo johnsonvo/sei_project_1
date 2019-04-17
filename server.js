@@ -29,110 +29,16 @@ app.use((req, res, next) => {
 //   next(error);
 // });
 
-// app.use((error, req, res, next) => {
-//   res.status(error.status || 500);
-//   res.json({
-//     error: {
-//       message: error.message
-//     }
-//   });
-// });
+app.use((error, req, res, next) => {
+  res.status(error.status || 500);
+  res.json({
+    error: {
+      message: error.message
+    }
+  });
+});
 
-<<<<<<< HEAD
-/////////////////////
-/// SEED DATA ///
-////////////////////
-// const usersList = [
-//   {
-//     fullName: "Leanne Graham",
-//     email: "Sincere@april.biz",
-//     dob: "2/11/1988",
-//     products: "Rose"
-//   },
-//   {
-//     fullName: "Ervin Howell",
-//     email: "Shanna@melissa.tv",
-//     dob: "2/09/1900",
-//     products: "Sunflower"
-//   },
-//   {
-//     fullName: "Clementine Bauch",
-//     email: "Nathan@yesenia.net",
-//     dob: "12/1/1957",
-//     products: "Canation"
-//   },
-//   {
-//     fullName: "Patricia Lebsack",
-//     email: "Julianne.OConner@kory.org",
-//     dob: "15/08/2000",
-//     products: "Rose"
-//   }
-// ];
 
-// const flowersList = [
-//   {
-//     name: "Aconite",
-//     img:
-//       "https://proflowers.wpengine.com/wp-content/plugins/pf-flowertypes/image/winter-aconite-720790.jpg",
-//     price: "$12",
-//     season: "Early Spring",
-//     orders: 12
-//   },
-//   {
-//     name: "Ageratum",
-//     img:
-//       "https://proflowers.wpengine.com/wp-content/plugins/pf-flowertypes/image/ageratum-773201.jpg",
-//     price: "$11",
-//     season: "Mid‑Summer - Mid‑Fall",
-//     orders: 15
-//   },
-//   {
-//     name: "Allium",
-//     img:
-//       "https://proflowers.wpengine.com/wp-content/plugins/pf-flowertypes/image/purple-882161.jpg",
-//     price: "$11",
-//     season: "Late Spring - Mid‑Summer",
-//     orders: 11
-//   },
-//   {
-//     name: "Anemone",
-//     img:
-//       "https://proflowers.wpengine.com/wp-content/plugins/pf-flowertypes/image/summer-anemone-224501.jpg",
-//     price: "$10",
-//     season: "Mid Spring - Mid‑Fall",
-//     orders: 10
-//   }
-// ];
-
-// const ordersList = [
-//   {
-//     userId: 1,
-//     quantity: 3,
-//     price: "$100",
-//     productId: 12
-//   },
-//   {
-//     userId: 2,
-//     quantity: 4,
-//     price: "$200",
-//     productId: 13
-//   },
-//   {
-//     userId: 3,
-//     quantity: 6,
-//     price: "$300",
-//     productId: 14
-//   },
-//   {
-//     userId: 4,
-//     quantity: 7,
-//     price: "$500",
-//     productId: 15
-//   }
-// ];
-
-=======
->>>>>>> dev
 //Serve Static Assets
 app.use(express.static(__dirname + '/public'));
 
@@ -156,6 +62,9 @@ app.get('/api/users', (req, res) => {
   });
 });
 
+
+
+
 // Create User
 app.post('/api/users', (req, res) => {
   db.User.create(req.body, (err, newUser) => {
@@ -165,24 +74,15 @@ app.post('/api/users', (req, res) => {
 });
 
 // Get User by ID
-<<<<<<< HEAD
-app.get('/api/users/:userId', (req, res) => {
-  db.User.findById(req.params.userId, (err, fetchedUser) => {
-=======
 app.get('/api/users/:id', (req, res) => {
   db.User.findById(req.params.id, (err, fetchedUser) => {
->>>>>>> dev
     if (err) return res.status(400).json({ msg: "User ID not found" });
     res.json(fetchedUser);
   })
 });
 
 // Update User by ID
-<<<<<<< HEAD
-app.put("/api/users/:userId", (req, res) => {
-=======
 app.put("/api/users/:id", (req, res) => {
->>>>>>> dev
   db.User.findByIdAndUpdate(req.params.id, req.body, {new: true}, (err, updatedUser) => {
     if (err) return res.status(400).json({ msg: "User ID not found" });
     res.json(updatedUser);
@@ -190,11 +90,7 @@ app.put("/api/users/:id", (req, res) => {
 });
 
 // Delete User by ID
-<<<<<<< HEAD
-app.delete('/api/users/:userId', (req, res) => {
-=======
 app.delete('/api/users/:id', (req, res) => {
->>>>>>> dev
   db.User.findByIdAndRemove(req.params.id, (err, deletedUser) => {
     if (err) return res.status(400).json({ msg: "User ID not found" });
     res.json(deletedUser);
@@ -272,11 +168,7 @@ app.post('/api/orders', (req, res) => {
 });
 
 // Get order by ID
-<<<<<<< HEAD
-app.get('/api/orders/:orderId', (req, res) => {
-=======
 app.get('/api/orders/:id', (req, res) => {
->>>>>>> dev
   db.Order.findById(req.params.id, (err, fetchedOrder) => {
     if (err) return res.status(500).json({ msg: "Order does not exist" });
     res.json(fetchedOrder);
@@ -284,11 +176,7 @@ app.get('/api/orders/:id', (req, res) => {
 });
 
 // Update order by ID
-<<<<<<< HEAD
-app.get('/api/orders/:orderId', (req, res) => {
-=======
 app.get('/api/orders/:id', (req, res) => {
->>>>>>> dev
   db.Order.findByIdAndUpdate(req.params.id, {new: true}, (err, updatedOrder) => {
     if (err) return res.status(500).json({ msg: "Order does not exist" });
     res.json(updatedOrder);
@@ -296,11 +184,7 @@ app.get('/api/orders/:id', (req, res) => {
 });
 
 // Delete order by ID
-<<<<<<< HEAD
-app.delete('/api/orders/:orderId', (req, res) => {
-=======
 app.delete('/api/orders/:id', (req, res) => {
->>>>>>> dev
   db.Order.findByIdAndRemove(req.params.id, (err, deletedOrder) => {
     if (err) return res.status(500).json({ msg: "Order does not exist" });
     res.json(deletedOrder);

@@ -64,8 +64,9 @@ $(document).ready(()=>{
         error: handleError
     });
 
-
-    $('#newUserForm').on('submit', e => {
+// this.  will work on ES5 
+    $('#newUserForm').on('submit', function(e) {
+        console.log($(this).serialize());
         e.preventDefault();
         console.log('submit and get new user.....!!!!!!!!!');
     $.ajax({
@@ -79,7 +80,8 @@ $(document).ready(()=>{
 
 
 
-    $usersList.on('click', '.deleteBtn', (() => {
+    $usersList.on('click', '.deleteBtn', (function () {
+        // console.log($(this));
         console.log('clicked delete button to', '/api/users/'+$(this).attr('data-id'));
     $.ajax({
         method: 'DELETE',
