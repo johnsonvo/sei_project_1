@@ -68,7 +68,7 @@ $('#hide').click( () => {
 var usersList;
 var allUsers = [];
 
-$(document).ready(()=>{
+$(document).ready(function(){
     $usersList = $('#userTarget');
     $.ajax({
         method: 'GET',
@@ -107,56 +107,56 @@ $(document).ready(()=>{
 
 });
 
-const getUserHtml = user =>{
+function getUserHtml(user){
     return `<hr>
             <p>
             <strong>${user. fullName}</strong>
             <strong>${user. email}</strong>
-            <strong>${user. image}<strong>
-            <strong>${user. dob}<strong>
+            <strong>${user. img}<strong>
+            <strong>${user. dateOfBirth}<strong>
             <strong>${user. products}<strong>
             <button type="button" name="button" class="deleteBtn btn btn-danger pull-right" data-id=${user._id}>Delete</button>
             </p>`;
 
 };
 
-const getAllUsersHtml = users => {
+function getAllUsersHtml(users){
     console.log(users)
     return users.map(getUserHtml).join("");
 };
 
 // helper function to render all posts to view
 // note: we empty and re-render the collection each time our post data changes
-const render = () => {
+function render() {
     $usersList.empty();
     var usersHtml = getAllUsersHtml(allUsers);
     $usersList.append(usersHtml);
 };
 
 
-const handleSuccess = json =>{
+function handleSuccess(json){
     allUsers = json;
     render();
 };
 
-const handleError = e => {
+function handleError (e) {
     console.log('uh oh');
     $('#userTarget').text('Failed to load users, is the server working?');
 };
 
-const newUserSuccess = json =>{
+function newUserSuccess(json){
     console.log(json)
     $('#newUserForm input').val('');
     allUsers.push(json);
     render();
 }
 
-const newUserError = ()=>{
+function newUserError(){
     console.log('newUser error!');
 }
 
 
-const deleteUserSuccess = json => {
+function deleteUserSuccess(json){
     var user = json;
     console.log(json);
     var userId = user._id;
@@ -171,6 +171,6 @@ const deleteUserSuccess = json => {
     render();
 };
 
-    const deleteUserError = ()=> {
+function deleteUserError(){
     console.log('deleteuser error!');
 };
