@@ -38,6 +38,7 @@ app.use((req, res, next) => {
 //   });
 // });
 
+<<<<<<< HEAD
 /////////////////////
 /// SEED DATA ///
 ////////////////////
@@ -130,6 +131,8 @@ app.use((req, res, next) => {
 //   }
 // ];
 
+=======
+>>>>>>> dev
 //Serve Static Assets
 app.use(express.static(__dirname + '/public'));
 
@@ -162,15 +165,24 @@ app.post('/api/users', (req, res) => {
 });
 
 // Get User by ID
+<<<<<<< HEAD
 app.get('/api/users/:userId', (req, res) => {
   db.User.findById(req.params.userId, (err, fetchedUser) => {
+=======
+app.get('/api/users/:id', (req, res) => {
+  db.User.findById(req.params.id, (err, fetchedUser) => {
+>>>>>>> dev
     if (err) return res.status(400).json({ msg: "User ID not found" });
     res.json(fetchedUser);
   })
 });
 
 // Update User by ID
+<<<<<<< HEAD
 app.put("/api/users/:userId", (req, res) => {
+=======
+app.put("/api/users/:id", (req, res) => {
+>>>>>>> dev
   db.User.findByIdAndUpdate(req.params.id, req.body, {new: true}, (err, updatedUser) => {
     if (err) return res.status(400).json({ msg: "User ID not found" });
     res.json(updatedUser);
@@ -178,7 +190,11 @@ app.put("/api/users/:userId", (req, res) => {
 });
 
 // Delete User by ID
+<<<<<<< HEAD
 app.delete('/api/users/:userId', (req, res) => {
+=======
+app.delete('/api/users/:id', (req, res) => {
+>>>>>>> dev
   db.User.findByIdAndRemove(req.params.id, (err, deletedUser) => {
     if (err) return res.status(400).json({ msg: "User ID not found" });
     res.json(deletedUser);
@@ -256,7 +272,11 @@ app.post('/api/orders', (req, res) => {
 });
 
 // Get order by ID
+<<<<<<< HEAD
 app.get('/api/orders/:orderId', (req, res) => {
+=======
+app.get('/api/orders/:id', (req, res) => {
+>>>>>>> dev
   db.Order.findById(req.params.id, (err, fetchedOrder) => {
     if (err) return res.status(500).json({ msg: "Order does not exist" });
     res.json(fetchedOrder);
@@ -264,7 +284,11 @@ app.get('/api/orders/:orderId', (req, res) => {
 });
 
 // Update order by ID
+<<<<<<< HEAD
 app.get('/api/orders/:orderId', (req, res) => {
+=======
+app.get('/api/orders/:id', (req, res) => {
+>>>>>>> dev
   db.Order.findByIdAndUpdate(req.params.id, {new: true}, (err, updatedOrder) => {
     if (err) return res.status(500).json({ msg: "Order does not exist" });
     res.json(updatedOrder);
@@ -272,7 +296,11 @@ app.get('/api/orders/:orderId', (req, res) => {
 });
 
 // Delete order by ID
+<<<<<<< HEAD
 app.delete('/api/orders/:orderId', (req, res) => {
+=======
+app.delete('/api/orders/:id', (req, res) => {
+>>>>>>> dev
   db.Order.findByIdAndRemove(req.params.id, (err, deletedOrder) => {
     if (err) return res.status(500).json({ msg: "Order does not exist" });
     res.json(deletedOrder);
