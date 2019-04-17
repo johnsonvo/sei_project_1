@@ -4,6 +4,7 @@ const multer = require('multer');
 const mongoose = require('mongoose');
 const app = express();
 const PORT = process.env.PORT || 3000;
+const upload = multer({ destination: 'uploads/' });
 
 // Database
 mongoose.Promise = global.Promise;
@@ -137,7 +138,7 @@ app.get('/api/users/:id', (req, res) => {
 app.put("/api/users/:id", (req, res) => {
   db.User.findByIdAndUpdate(req.params.id, req.body, {new: true})
     .populate('order')
-    .populate('flower') 
+    .populate('flower')
     .exec((err, updatedUser) => {
     if (err) return res.status(400).json({ msg: "User ID not found" });
     res.json(updatedUser);
@@ -148,7 +149,7 @@ app.put("/api/users/:id", (req, res) => {
 app.delete('/api/users/:id', (req, res) => {
   db.User.findByIdAndRemove(req.params.id)
     .populate('order')
-    .populate('flower') 
+    .populate('flower')
     .exec((err, deletedUser) => {
     if (err) return res.status(400).json({ msg: "User ID not found" });
     res.json(deletedUser);
@@ -174,12 +175,21 @@ app.get("/api/flowers", (req, res) => {
 });
 
 // Create Flower
-app.post('/api/flowers', (req, res) => {
+// app.post('/api/flowers', (req, res) => {
+//   db.Flower.create(req.body, (err, newFlower) => {
+//     if (err) return res.status(500).json({ msg: 'Something goofed. Please try again!' });
+//     res.json(newFlower);
+//   });
+// });
+
+// Create flower with Multer
+app.post('/api/flowers', upload.single('avatar'), (req, res) => {
   db.Flower.create(req.body, (err, newFlower) => {
     if (err) return res.status(500).json({ msg: 'Something goofed. Please try again!' });
     res.json(newFlower);
   });
 });
+
 
 // Get Flower by ID
 app.get('/api/flowers/:id', (req, res) => {
