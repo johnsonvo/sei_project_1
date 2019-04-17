@@ -69,8 +69,8 @@ app.get('/api/users', (req, res) => {
 
 
 
-// Create User
-app.post('/api/users', (req, res) => {
+// Create User with multer
+app.post('/api/users', upload.single('avatar'), (req, res) => {
   db.User.create(req.body, (err, newUser) => {
     if (err) return res.status(500).json({msg: 'Something went wrong. Please try again!'});
     res.json(newUser);
