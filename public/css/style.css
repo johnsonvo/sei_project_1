@@ -4,11 +4,15 @@ Body {
     flex-direction: column;
     font-family: Arial, Helvetica, sans-serif;
     font-weight: 300;
+    margin: 0;
 }
 
 .header {
-    display: block;
+    display: flex;
+    flex-direction: column;
     height: 100vh;
+    justify-content: center;
+    align-items: center;
 }
 
 main {
@@ -19,25 +23,52 @@ input{
     margin: .5vh;
 }
 
-/* Nav __________________________________________ */
-.navHeader {
+.headerTop {
+    display: flex;
+    align-content: center;
+    align-items: center;
+    height: 15vw;
+}
+
+.headerTitle {
     width: 60vw;
-    height: auto;
-    margin: 40vh 1vw 30vh 5vw;
+    height: 8vw;
+    margin: 0 1.5vw 0 0;
+}
+
+.headerLogo {
+    width: 15vw;
+    height: 15vw;
+}
+
+.fa-angle-double-down{
+    color: #BE2030;
+}
+
+/* Nav __________________________________________ */
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    height: 8vh;
+    width: 100vw;
+    text-align: center;
+    background: linear-gradient(#BC202F, 75%, transparent);
+}
+
+.leftSide {
+    display: flex;
+    margin: 1vh 0 0 1vw;
 }
 
 .navLogo {
-    width: 10vw;
-    height: auto;
-    margin: 30vh auto;
+    height: 4.5vh;
+    width: auto;
 }
 
-nav {
-    position: fixed;
-    right: 0;
-    height: 2vw;
-    text-align: center;
-    background-color: #BC202F;
+.rightSide {
+    display: flex;
+    margin-right: 1vw;
 }
 
 .topNav {
@@ -63,6 +94,7 @@ nav {
     display: flex;
     flex-wrap: wrap;
     justify-content: flex-start;
+    margin-left: 2vw;
 }
 
 .flowerCardImgs {
@@ -93,10 +125,6 @@ p {
     height: 100vh;
 }
 
-.userLogo {
-    width: 15vw;
-}
-
 .forms {
     display: flex;
     flex-direction: column;
@@ -114,10 +142,6 @@ p {
 .flowerCreatePage {
     display: none;
     height: 100vh;
-}
-
-.flowerLogo {
-    width: 15vw;
 }
 
 .formInputFlowers {
@@ -143,10 +167,6 @@ p {
 .profilePage {
     display: none;
     height: 100vh;
-}
-
-.profileLogo {
-    width: 15vw;
 }
 
 .profileData {
@@ -204,6 +224,44 @@ p {
     width: 22vw;
     height: 22vw;
     border: 1px solid black;
+}
+
+/* Shopping Cart __________________________________________ */
+
+.cart{
+    display: none;
+    position: fixed;
+    top: 5vh;
+    right: 0;
+}
+
+.hideShoppingCart{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 2vw;
+    border-radius: 1vw 0 0 1vw;
+    background-color: #BE2030;
+}
+
+.fa-angle-right {
+    color: white;
+}
+
+.shoppingCart{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 90vh;
+    width: 20vw;
+    background-color: white;
+}
+
+/* .shoppingTitle{
+} */
+
+.purchaseButton{
+    margin-bottom: 5vh;
 }
 
 /* Ipad Screen */
