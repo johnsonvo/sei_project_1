@@ -1,5 +1,11 @@
 console.log('sanity check');
 
+// Reveal Landing Page
+$('#navLogo').click ( () => {
+    $('#landingPage').css('display', 'flex');
+    $('main').css('display', 'none');
+})
+
 // Reveal Market
 $('#landingPage').click( () => {
     $('.marketPlace').css('display', 'block');
@@ -50,7 +56,14 @@ $('#showFavorite').click( () => {
     $('.products').css('display', 'none');
 });
 
+// Reveal Shopping Cart
+$('#navCart').click( () => {
+    $('.cart').css('display', 'flex');
+})
 
+$('#hide').click( () => {
+    $('.cart').css('display', 'none');
+})
 
 var usersList;
 var allUsers = [];
