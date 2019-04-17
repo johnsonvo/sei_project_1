@@ -22,7 +22,7 @@ $('#navMarket').click( () => {
 
 // Reveal User Create
 $('#navCreateUser').click( () => {
-    $('.userCreatePage').css('display', 'block');
+    $('.userCreatePage').css('display', 'flex');
     $('.marketPlace').css('display', 'none');
     $('.flowerCreatePage').css('display', 'none');
     $('.profilePage').css('display', 'none');
@@ -38,7 +38,7 @@ $('#navProfile').click( () => {
 
 // Reveal Flower Create
 $('#navCreateFlower').click( () => {
-    $('.flowerCreatePage').css('display', 'block');
+    $('.flowerCreatePage').css('display', 'flex');
     $('.marketPlace').css('display', 'none');
     $('.userCreatePage').css('display', 'none');
     $('.profilePage').css('display', 'none');

@@ -29,7 +29,7 @@
                 <a class="topNav" id="navMarket">Market</a>
                 <a class="topNav" id="navProfile">Profile</a>
                 <a class="topNav" id="navCreateFlower">Flower</a>
-                <a class="topNav" id="navCreateUser">Create</a>
+                <a class="topNav" id="navCreateUser">User</a>
                 <a class="topNav" id="navCart"><i class="fas fa-shopping-cart"></i></a>
             </div>
         </nav>
@@ -99,12 +99,12 @@
     Create User 
 ---------------->
         <div class="userCreatePage">
-            <h2>Create User</h2>
-            <form class="forms" id="newUserForm">
+            <form class="forms" id="newUserForm" action="/profile" method="post" enctype="multipart/form-data">
+                <h2>Create User</h2>
                 <div class="formInputUsers">
-                    <form action="/profile" method="post" enctype="multipart/form-data" class="formImg">
+                    <div class="userUploadImg">
                         <input type="file" name="avatar" />
-                    </form>
+                    </div>
                     <div class="textFields">
                         <input type="text" name="fullName" placeholder="Full Name" />
                         <input type="email" name="email" placeholder="Email" />

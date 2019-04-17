@@ -7,6 +7,10 @@ Body {
     margin: 0;
 }
 
+h2{
+    margin: 0;
+}
+
 .header {
     display: flex;
     flex-direction: column;
@@ -121,33 +125,19 @@ p {
 
 /* Create User __________________________________________ */
 .userCreatePage {
-    display: none;
-    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-content: center;
 }
 
 .forms {
     display: flex;
     flex-direction: column;
-    width: 60vw;
-    margin: 10vh auto;
-}
-
-.formInputUsers {
-    display: flex;
-    flex-direction: row;
-    background-color: #7FDBC9;
-}
-
-/* Create Flower __________________________________________ */
-.flowerCreatePage {
-    display: none;
-    height: 100vh;
-}
-
-.formInputFlowers {
-    display: flex;
-    flex-direction: row;
-    background-color: #7FDBC9;
+    justify-content: space-around;
+    width: 30vw;
+    height: 30vw;
+    background-color: rgb(184, 178, 127);
+    border-radius: 1vw;
 }
 
 .formImg{
@@ -162,6 +152,37 @@ p {
     width: 30vw;
 }
 
+.formInputUsers {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: space-between;
+    align-items: center;
+    margin: 0;
+}
+
+.userUploadImg {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    height: 10vw;
+    width: 10vw;
+    background-color: white;
+    border-radius: 1vw;
+}
+
+
+/* Create Flower __________________________________________ */
+.flowerCreatePage {
+    display: none;
+    height: 100vh;
+}
+
+.formInputFlowers {
+    display: flex;
+    flex-direction: row;
+    background-color: rgb(184, 178, 127);
+}
 
 /* Profile __________________________________________ */
 .profilePage {
@@ -174,7 +195,7 @@ p {
     flex-direction: row;
     width: 50vw;
     margin: 0 auto;
-    background-color: #7FDBC9;
+    background-color: rgb(184, 178, 127);
 }
 
 .profileImg {
