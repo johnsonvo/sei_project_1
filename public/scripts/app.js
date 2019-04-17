@@ -65,6 +65,18 @@ $('#hide').click( () => {
     $('.cart').css('display', 'none');
 })
 
+// Submit Create User Directs to Profiles
+$('#register').click( () => {
+    $('.profilePage').css('display', 'block');
+    $('.userCreatePage').css('display', 'none');
+})
+
+// Submit Create Flower Directs to Market
+$('#registerFlower').click( () => {
+    $('.marketPlace').css('display', 'block');
+    $('.flowerCreatePage').css('display', 'none');
+})
+
 var usersList;
 var allUsers = [];
 
