@@ -54,7 +54,10 @@ app.get('/', (req,res) => {
 ////////////////////
 // Get User
 app.get('/api/users', (req, res) => {
-  db.User.find((err, users) => {
+  db.User.find()
+    .populate('order')
+    .populate('flower')
+    .exec((err, users) => {
     if (err) {
       console.log('err: ' + err);
       res.sendStatus(500);
@@ -65,7 +68,6 @@ app.get('/api/users', (req, res) => {
 
 
 
-
 // Create User
 app.post('/api/users', (req, res) => {
   db.User.create(req.body, (err, newUser) => {
@@ -73,18 +75,70 @@ app.post('/api/users', (req, res) => {
     res.json(newUser);
   });
 });
+// // -------------------------------------
+// // create new book and new author
+// app.post('/api/books', (req, res) => {
+//   const newBook = new db.Book({
+//     title: req.body.title,
+//     image: req.body.image,
+//     releaseDate: req.body.releaseDate,
+//   });
 
+//   // find the author from req.body
+//   db.Author.findOne({name: req.body.author}, (err, author) => {
+//     if (err) return res.json({error: err});
+//     // if that author doesn't exist yet, create a new one
+//     if (author === null) {
+//       db.Author.create({name:req.body.author, alive: true}, (err, newAuthor) => {
+//         if (err) return console.log(`create error: ${err}`);
+//         newBook.author = newAuthor;
+//         // save newBook to database
+//         newBook.save((err, savedBook) => {
+//           if (err) return console.log(`save error: ${err}`);
+//           console.log(`saved ${savedBook.title}`);
+//           // send back the book!
+//           res.json(savedBook);
+//         });
+//       });
+//     } else {
+//       // If that author does exist, set newBook author to that author
+//       newBook.author = author;
+//       // save newBook to database
+//       newBook.save((err, savedBook) => {
+//         if (err) return console.log(`save error: ${err}`);
+//         console.log("saved ", savedBook.title);
+//         // send back the book!
+//         res.json(savedBook);
+//       });
+//     };
+//   });
+// });
+
+
+
+
+
+
+
+// --------------------------------------
 // Get User by ID
 app.get('/api/users/:id', (req, res) => {
-  db.User.findById(req.params.id, (err, fetchedUser) => {
+  db.User.findById(req.params.id)
+    .populate('order')
+    .populate('flower')
+    .exec((err, fetchedUser) => {
     if (err) return res.status(400).json({ msg: "User ID not found" });
     res.json(fetchedUser);
-  })
+  });
 });
+
 
 // Update User by ID
 app.put("/api/users/:id", (req, res) => {
-  db.User.findByIdAndUpdate(req.params.id, req.body, {new: true}, (err, updatedUser) => {
+  db.User.findByIdAndUpdate(req.params.id, req.body, {new: true})
+    .populate('order')
+    .populate('flower') 
+    .exec((err, updatedUser) => {
     if (err) return res.status(400).json({ msg: "User ID not found" });
     res.json(updatedUser);
   });
@@ -92,11 +146,17 @@ app.put("/api/users/:id", (req, res) => {
 
 // Delete User by ID
 app.delete('/api/users/:id', (req, res) => {
-  db.User.findByIdAndRemove(req.params.id, (err, deletedUser) => {
+  db.User.findByIdAndRemove(req.params.id)
+    .populate('order')
+    .populate('flower') 
+    .exec((err, deletedUser) => {
     if (err) return res.status(400).json({ msg: "User ID not found" });
     res.json(deletedUser);
   });
 });
+
+
+
 
 
 /////////////////////
