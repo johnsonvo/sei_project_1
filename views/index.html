@@ -102,7 +102,9 @@
             <h2>Create User</h2>
             <form class="forms" id="newUserForm">
                 <div class="formInputUsers">
-                    <input class="formImg" type="text" name="img" placeholder="Image URL" />
+                    <form action="/profile" method="post" enctype="multipart/form-data" class="formImg">
+                        <input type="file" name="avatar" />
+                    </form>
                     <div class="textFields">
                         <input type="text" name="fullName" placeholder="Full Name" />
                         <input type="email" name="email" placeholder="Email" />
@@ -119,7 +121,9 @@
             <h2>Create Flower</h2>
             <form class="forms" id="newFlowerForm">
                 <div class="formInputFlowers">
-                    <input class="formImg" type="text" name="img" placeholder="Image URL" />
+                    <form action="/profile" method="post" enctype="multipart/form-data" class="formImg">
+                        <input type="file" name="avatar" />
+                    </form>
                     <div class="textFields">
                         <input type="text" name="name" placeholder="Flower Name" />
                         <input type="text" name="type" placeholder="Type of Flower" />
