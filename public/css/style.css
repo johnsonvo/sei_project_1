@@ -125,7 +125,7 @@ p {
 
 /* Create User __________________________________________ */
 .userCreatePage {
-    display: flex;
+    display: none;
     justify-content: center;
     align-content: center;
 }
