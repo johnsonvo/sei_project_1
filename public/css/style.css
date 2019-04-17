@@ -232,7 +232,8 @@ p {
     display: none;
     position: fixed;
     top: 5vh;
-    right: 0;
+    right: 1vw;
+    filter: drop-shadow(0 0 0.5rem grey);
 }
 
 .hideShoppingCart{
@@ -254,7 +255,20 @@ p {
     justify-content: space-between;
     height: 90vh;
     width: 20vw;
+    border-radius: 0 1vw 1vw 0;
     background-color: white;
+}
+
+.shoppingTitle{
+    margin-left: 1vw;
+}
+
+.shoppingList{
+    margin-left: 1vw;
+}
+
+.purchaseButton{
+    margin-left: 1vw;
 }
 
 /* .shoppingTitle{
