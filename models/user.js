@@ -5,7 +5,7 @@ const UserSchema = new Schema({
 
     fullName:{type:String, required:true},
     email:{type:String, required:true, lowercase:true,trim:true},
-    img: String,
+    avatar: String,
     dateOfBirth: String,
     products:{
         type: Schema.Types.ObjectId, // This data type will be MongoDB Object ID
