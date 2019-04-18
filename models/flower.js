@@ -5,17 +5,10 @@ const FlowerSchema = new Schema({
     
     name:String,
     // img url will use String
-    img: String,
+    avatar: String,
     price: String,
     season:String,
-    userId:{
-        type: Schema.Types.ObjectId, // This data type will be MongoDB Object ID
-        ref: 'User' // Queries this Object ID will be pointed to the User collection
-    },
-    orders:{
-        type: Schema.Types.ObjectId, // This data type will be MongoDB Object ID
-        ref: 'Order' // Queries this Object ID will be pointed to the Order collection
-    },
+    orders:Number,
     created_date:{type:Date, default:Date.now},
 });
 

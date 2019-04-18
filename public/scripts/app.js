@@ -114,7 +114,7 @@ function getUserHtml(user){
             <strong>${user. email}</strong>
             <strong>${user. avatar}<strong>
             <strong>${user. dateOfBirth}<strong>
-            <strong>${user. products}<strong>
+            <strong>${user. flower}<strong>
             <button type="button" name="button" class="deleteBtn btn btn-danger pull-right" data-id=${user._id}>Delete</button>
             </p>`;
 

@@ -75,52 +75,8 @@ app.post('/api/users', (req, res) => {
     res.json(newUser);
   });
 });
-// // -------------------------------------
-// // create new book and new author
-// app.post('/api/books', (req, res) => {
-//   const newBook = new db.Book({
-//     title: req.body.title,
-//     image: req.body.image,
-//     releaseDate: req.body.releaseDate,
-//   });
-
-//   // find the author from req.body
-//   db.Author.findOne({name: req.body.author}, (err, author) => {
-//     if (err) return res.json({error: err});
-//     // if that author doesn't exist yet, create a new one
-//     if (author === null) {
-//       db.Author.create({name:req.body.author, alive: true}, (err, newAuthor) => {
-//         if (err) return console.log(`create error: ${err}`);
-//         newBook.author = newAuthor;
-//         // save newBook to database
-//         newBook.save((err, savedBook) => {
-//           if (err) return console.log(`save error: ${err}`);
-//           console.log(`saved ${savedBook.title}`);
-//           // send back the book!
-//           res.json(savedBook);
-//         });
-//       });
-//     } else {
-//       // If that author does exist, set newBook author to that author
-//       newBook.author = author;
-//       // save newBook to database
-//       newBook.save((err, savedBook) => {
-//         if (err) return console.log(`save error: ${err}`);
-//         console.log("saved ", savedBook.title);
-//         // send back the book!
-//         res.json(savedBook);
-//       });
-//     };
-//   });
-// });
 
 
-
-
-
-
-
-// --------------------------------------
 // Get User by ID
 app.get('/api/users/:id', (req, res) => {
   db.User.findById(req.params.id)
@@ -211,47 +167,136 @@ app.delete('/api/flowers/:id', (req, res) => {
 ///////////////////
 // Get order
 app.get('/api/orders', (req, res) => {
-  db.Order.find((err, orders) => {
+  db.Order.find()
+    .populate('user')
+    .populate('flower')
+    .exec((err, orders) => {
     if (err) {
-      console.log('error: ' + err);
+      console.log('err: ' + err);
       res.sendStatus(500);
     }
     res.json(orders);
   });
 });
 
+
 // Create order
+// app.post('/api/orders', (req, res) => {
+//   db.Order.create(req.body, (err, newOrder) => {
+//     if (err) return res.status(500).json({ msg: "Order does not exist" });
+//     res.json(newOrder);
+//   });
+// });
+
+// // -------------------------------------
+// create new order and new user and new flower
 app.post('/api/orders', (req, res) => {
-  db.Order.create(req.body, (err, newOrder) => {
-    if (err) return res.status(500).json({ msg: "Order does not exist" });
-    res.json(newOrder);
+  const newOrder = new db.Order({
+    quantity: req.body.quantity,
+    price: req.body.price,
+  });
+
+  // find the flower from req.body
+  db.Flower.findOne({name: req.body.flower}, (err, flower) => {
+    if (err) return res.json({error: err});
+    // if that flower doesn't exist yet, create a new one
+    if (flower === null) {
+      db.Flower.create({name:req.body.flower, alive: true}, (err, newOrder) => {
+        if (err) return console.log(`create error: ${err}`);
+        newOrder.flower = newOrder;
+        // save newOrder to database
+        newOrder.save((err, savedOrder) => {
+          if (err) return console.log(`save error: ${err}`);
+          console.log(`saved ${savedOrder.quantity}`);
+          // send back the Order!
+          res.json(savedOrder);
+        });
+      });
+    } else {
+      // If that flower does exist, set newOrder flower to that flower
+      newOrder.flower = flower;
+      // save newOrder to database
+      newOrder.save((err, savedOrder) => {
+        if (err) return console.log(`save error: ${err}`);
+        console.log("saved ", savedOrder.quantity);
+        // send back the Order!
+        res.json(savedOrder);
+      });
+    };
+  });
+
+
+   // find the user from req.body
+    db.User.findOne({fullName: req.body.user}, (err, user) => {
+    if (err) return res.json({error: err});
+    // if that user doesn't exist yet, create a new one
+    if (user === null) {
+      db.user.create({fullName:req.body.user, alive: true}, (err, newOrder) => {
+        if (err) return console.log(`create error: ${err}`);
+        newOrder.user = newOrder;
+        // save newOrder to database
+        newOrder.save((err, savedOrder) => {
+          if (err) return console.log(`save error: ${err}`);
+          console.log(`saved ${savedOrder.quantity}`);
+          // send back the Order!
+          res.json(savedOrder);
+        });
+      });
+    } else {
+      // If that user does exist, set newOrder user to that user
+      newOrder.user = user;
+      // save newOrder to database
+      newOrder.save((err, savedOrder) => {
+        if (err) return console.log(`save error: ${err}`);
+        console.log("saved ", savedOrder.quantity);
+        // send back the Order!
+        res.json(savedOrder);
+      });
+    };
   });
 });
 
-// Get order by ID
+
+
+
+
+
+// Get Order by ID
 app.get('/api/orders/:id', (req, res) => {
-  db.Order.findById(req.params.id, (err, fetchedOrder) => {
-    if (err) return res.status(500).json({ msg: "Order does not exist" });
+  db.Order.findById(req.params.id)
+    .populate('order')
+    .populate('flower') 
+    .exec((err, fetchedOrder) => {
+    if (err) return res.status(500).json({ msg: "Order ID not found" });
     res.json(fetchedOrder);
   });
 });
 
+
+
 // Update order by ID
-app.get('/api/orders/:id', (req, res) => {
-  db.Order.findByIdAndUpdate(req.params.id, {new: true}, (err, updatedOrder) => {
-    if (err) return res.status(500).json({ msg: "Order does not exist" });
+
+app.put("/api/orders/:id", (req, res) => {
+  db.Order.findByIdAndUpdate(req.params.id, req.body, {new: true})
+    .populate('user')
+    .populate('flower') 
+    .exec((err, updatedOrder) => {
+    if (err) return res.status(500).json({ msg: "Order ID not found" });
     res.json(updatedOrder);
   });
 });
 
+
 // Delete order by ID
 app.delete('/api/orders/:id', (req, res) => {
-  db.Order.findByIdAndRemove(req.params.id, (err, deletedOrder) => {
-    if (err) return res.status(500).json({ msg: "Order does not exist" });
+  db.Order.findByIdAndRemove(req.params.id)
+    .populate('user')
+    .populate('flower') 
+    .exec((err, deletedOrder) => {
+    if (err) return res.status(500).json({ msg: "Order ID not found" });
     res.json(deletedOrder);
   });
 });
-
 
 
 // Start Server
