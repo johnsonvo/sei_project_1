@@ -4,7 +4,23 @@ const multer = require('multer');
 const mongoose = require('mongoose');
 const app = express();
 const PORT = process.env.PORT || 3000;
-const upload = multer({ destination: 'uploads/' });
+
+
+// Multer middleware
+// Store multer images in disk storage
+const storage = multer.diskStorage({
+  destination: function(req, file, cb) {
+    // callback to handle error and store file
+    cb(null, './uploads/');
+  },
+  filename: function(req, file, cb) {
+    // callback function to rename with date and original file name.
+    cb(null, new Date().toISOString() + file.originalname);
+  }
+})
+
+// Stores uploads into multer storage above.
+const upload = multer({ storage: storage });
 
 // Database
 mongoose.Promise = global.Promise;
@@ -66,14 +82,9 @@ app.get('/api/users', (req, res) => {
 
 
 
-<<<<<<< HEAD
-// Create User with multer
-app.post('/api/users', upload.single('avatar'), (req, res) => {
-=======
 
 // Create User
 app.post('/api/users', (req, res) => {
->>>>>>> dev
   db.User.create(req.body, (err, newUser) => {
     if (err) return res.status(500).json({msg: 'Something went wrong. Please try again!'});
     res.json(newUser);
@@ -90,14 +101,10 @@ app.get('/api/users/:id', (req, res) => {
 
 // Update User by ID
 app.put("/api/users/:id", (req, res) => {
-<<<<<<< HEAD
   db.User.findByIdAndUpdate(req.params.id, req.body, {new: true})
     .populate('order')
     .populate('flower')
     .exec((err, updatedUser) => {
-=======
-  db.User.findByIdAndUpdate(req.params.id, req.body, {new: true}, (err, updatedUser) => {
->>>>>>> dev
     if (err) return res.status(400).json({ msg: "User ID not found" });
     res.json(updatedUser);
   });
@@ -105,14 +112,10 @@ app.put("/api/users/:id", (req, res) => {
 
 // Delete User by ID
 app.delete('/api/users/:id', (req, res) => {
-<<<<<<< HEAD
   db.User.findByIdAndRemove(req.params.id)
     .populate('order')
     .populate('flower')
     .exec((err, deletedUser) => {
-=======
-  db.User.findByIdAndRemove(req.params.id, (err, deletedUser) => {
->>>>>>> dev
     if (err) return res.status(400).json({ msg: "User ID not found" });
     res.json(deletedUser);
   });
@@ -143,6 +146,7 @@ app.get("/api/flowers", (req, res) => {
 
 // Create flower with Multer
 app.post('/api/flowers', upload.single('avatar'), (req, res) => {
+  console.log(req.file);
   db.Flower.create(req.body, (err, newFlower) => {
     if (err) return res.status(500).json({ msg: 'Something goofed. Please try again!' });
     res.json(newFlower);
@@ -278,7 +282,7 @@ app.post('/api/orders', (req, res) => {
 app.get('/api/orders/:id', (req, res) => {
   db.Order.findById(req.params.id)
     .populate('order')
-    .populate('flower') 
+    .populate('flower')
     .exec((err, fetchedOrder) => {
     if (err) return res.status(500).json({ msg: "Order ID not found" });
     res.json(fetchedOrder);
@@ -292,7 +296,7 @@ app.get('/api/orders/:id', (req, res) => {
 app.put("/api/orders/:id", (req, res) => {
   db.Order.findByIdAndUpdate(req.params.id, req.body, {new: true})
     .populate('user')
-    .populate('flower') 
+    .populate('flower')
     .exec((err, updatedOrder) => {
     if (err) return res.status(500).json({ msg: "Order ID not found" });
     res.json(updatedOrder);
@@ -304,7 +308,7 @@ app.put("/api/orders/:id", (req, res) => {
 app.delete('/api/orders/:id', (req, res) => {
   db.Order.findByIdAndRemove(req.params.id)
     .populate('user')
-    .populate('flower') 
+    .populate('flower')
     .exec((err, deletedOrder) => {
     if (err) return res.status(500).json({ msg: "Order ID not found" });
     res.json(deletedOrder);
