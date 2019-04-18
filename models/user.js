@@ -5,9 +5,10 @@ const UserSchema = new Schema({
 
     fullName:{type:String, required:true},
     email:{type:String, required:true, lowercase:true,trim:true},
-    image: String,
-    dob: String,
-    products:String,
+    avatar: String,
+    dateOfBirth: String,
+    flower:String,
+    orders:String,
     created_date:{type:Date, default:Date.now},
 });
 

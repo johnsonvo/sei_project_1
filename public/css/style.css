@@ -4,11 +4,15 @@ Body {
     flex-direction: column;
     font-family: Arial, Helvetica, sans-serif;
     font-weight: 300;
+    margin: 0;
 }
 
 .header {
-    display: block;
+    display: flex;
+    flex-direction: column;
     height: 100vh;
+    justify-content: center;
+    align-items: center;
 }
 
 main {
@@ -19,19 +23,52 @@ input{
     margin: .5vh;
 }
 
-/* Nav __________________________________________ */
-.navImg {
-    width: 60vw;
-    height: auto;
-    margin: 30vh 5vw;
+.headerTop {
+    display: flex;
+    align-content: center;
+    align-items: center;
+    height: 15vw;
 }
 
+.headerTitle {
+    width: 60vw;
+    height: 8vw;
+    margin: 0 1.5vw 0 0;
+}
+
+.headerLogo {
+    width: 15vw;
+    height: 15vw;
+}
+
+.fa-angle-double-down{
+    color: #BE2030;
+}
+
+/* Nav __________________________________________ */
+
 nav {
-    position: fixed;
-    right: 0;
-    height: 2vw;
+    display: flex;
+    justify-content: space-between;
+    height: 8vh;
+    width: 100vw;
     text-align: center;
-    background-color: #BC202F;
+    background: linear-gradient(#BC202F, 75%, transparent);
+}
+
+.leftSide {
+    display: flex;
+    margin: 1vh 0 0 1vw;
+}
+
+.navLogo {
+    height: 4.5vh;
+    width: auto;
+}
+
+.rightSide {
+    display: flex;
+    margin-right: 1vw;
 }
 
 .topNav {
@@ -57,6 +94,7 @@ nav {
     display: flex;
     flex-wrap: wrap;
     justify-content: flex-start;
+    margin-left: 2vw;
 }
 
 .flowerCardImgs {
@@ -87,10 +125,6 @@ p {
     height: 100vh;
 }
 
-.userLogo {
-    width: 15vw;
-}
-
 .forms {
     display: flex;
     flex-direction: column;
@@ -104,14 +138,52 @@ p {
     background-color: #7FDBC9;
 }
 
+
+/* style at app.js (ajex call) */
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    max-width: 300px;
+    margin: auto;
+    text-align: center;
+    font-family: arial;
+    margin-top:50px;
+  }
+  
+  .title {
+    color: grey;
+    font-size: 18px;
+  }
+  
+  
+  
+  
+  .deleteUser{
+    border: none;
+    outline: 0;
+    display: inline-block;
+    padding: 8px;
+    color: white;
+    background-color: black;
+    text-align: center;
+    cursor: pointer;
+    width: 100%;
+    font-size: 18px;
+}
+
+a {
+    text-decoration: none;
+    font-size: 22px;
+    color: black;
+}
+
+.deleteUser:hover, a:hover {
+    opacity: 0.7;
+}
+
 /* Create Flower __________________________________________ */
 .flowerCreatePage {
     display: none;
     height: 100vh;
-}
-
-.flowerLogo {
-    width: 15vw;
 }
 
 .formInputFlowers {
@@ -137,10 +209,6 @@ p {
 .profilePage {
     display: none;
     height: 100vh;
-}
-
-.profileLogo {
-    width: 15vw;
 }
 
 .profileData {
@@ -198,6 +266,58 @@ p {
     width: 22vw;
     height: 22vw;
     border: 1px solid black;
+}
+
+/* Shopping Cart __________________________________________ */
+
+.cart{
+    display: none;
+    position: fixed;
+    top: 5vh;
+    right: 1vw;
+    filter: drop-shadow(0 0 0.5rem grey);
+}
+
+.hideShoppingCart{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 2vw;
+    border-radius: 1vw 0 0 1vw;
+    background-color: #BE2030;
+}
+
+.fa-angle-right {
+    color: white;
+}
+
+.shoppingCart{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 90vh;
+    width: 20vw;
+    border-radius: 0 1vw 1vw 0;
+    background-color: white;
+}
+
+.shoppingTitle{
+    margin-left: 1vw;
+}
+
+.shoppingList{
+    margin-left: 1vw;
+}
+
+.purchaseButton{
+    margin-left: 1vw;
+}
+
+/* .shoppingTitle{
+} */
+
+.purchaseButton{
+    margin-bottom: 5vh;
 }
 
 /* Ipad Screen */

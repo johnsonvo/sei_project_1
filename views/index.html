@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.4.0.js" integrity="sha256-DYZMCC8HTC+QDr5QNaIcfR7VSPtcISykd+6eSmBW5qo=" crossorigin="anonymous"></script>
     <title>Compass Rose</title>
 </head>
@@ -13,22 +14,29 @@
     Landing Page 
 ---------------->
     <header class="header" id="landingPage">
-        <img class="navImg" src="/images/crTitle.png" alt="Compass Rose Logo" />
-        <h1>Click to See the Flower Market!</h1>
+        <div class="headerTop">
+            <img class="headerTitle" src="/images/crHeader.png" alt="Compass Rose Logo" />
+            <img class="headerLogo" src="/images/crLogo.png" alt="Compass Rose Logo" />
+        </div>
+        <i class="fa fa-angle-double-down fa-5x" aria-hidden="true"></i>
     </header>
     <main>
         <nav>
-            <a class="topNav" id="navMarket">Market</a>
-            <a class="topNav" id="navProfile">Profile</a>
-            <a class="topNav" id="navCreateFlower">Flower</a>
-            <a class="topNav" id="navCreateUser">Create</a>
-            <a class="topNav" id="navCart">Cart</a>
+            <div class="leftSide">
+                <img class="navLogo" id="navLogo" src="/images/crTitle.png" alt="Compass Rose Logo" />
+            </div>
+            <div class="rightSide">
+                <a class="topNav" id="navMarket">Market</a>
+                <a class="topNav" id="navProfile">Profile</a>
+                <a class="topNav" id="navCreateFlower">Flower</a>
+                <a class="topNav" id="navCreateUser">Create</a>
+                <a class="topNav" id="navCart"><i class="fas fa-shopping-cart"></i></a>
+            </div>
         </nav>
 <!--------------
     Market Place 
 ---------------->
         <div class="marketPlace">
-            <img class="flowerLogo" src="/images/crTitle.png" alt="Compass Rose Logo" />
             <div class="searchMarket">
                 <form class="searchBar">
                     <input type="text" placeholder="Search for Flower" name="search">
@@ -91,11 +99,12 @@
     Create User 
 ---------------->
         <div class="userCreatePage">
-            <img class="userLogo" src="/images/crTitle.png" alt="Compass Rose Logo" />
             <h2>Create User</h2>
             <form class="forms" id="newUserForm">
                 <div class="formInputUsers">
-                    <input class="formImg" type="text" name="img" placeholder="Image URL" />
+                    <input action="/profile" method="post" enctype="multipart/form-data" class="formImg">
+                        <input type="file" name="avatar" />
+                    </input>
                     <div class="textFields">
                         <input type="text" name="fullName" placeholder="Full Name" />
                         <input type="email" name="email" placeholder="Email" />
@@ -109,11 +118,12 @@
     Create Flower 
 ---------------->
         <div class="flowerCreatePage">
-            <img class="flowerLogo" src="/images/crTitle.png" alt="Compass Rose Logo" />
             <h2>Create Flower</h2>
             <form class="forms" id="newFlowerForm">
                 <div class="formInputFlowers">
-                    <input class="formImg" type="text" name="img" placeholder="Image URL" />
+                    <form action="/profile" method="post" enctype="multipart/form-data" class="formImg">
+                        <input type="file" name="avatar" />
+                    </form>
                     <div class="textFields">
                         <input type="text" name="name" placeholder="Flower Name" />
                         <input type="text" name="type" placeholder="Type of Flower" />
@@ -128,7 +138,6 @@
     Profile 
 ---------------->
         <div class="profilePage">
-            <img class="profileLogo" src="/images/crTitle.png" alt="Compass Rose Logo" />
             <h2>User Profile</h2>
             <div class="profileData">
                     <img class="profileImg" src="#" alt="Profile Picture" />
@@ -162,13 +171,34 @@
             <div id='userTarget'>    
             </div>
         </div>
+<!--------------
+    Shopping Cart 
+---------------->
+        <div class="cart">
+            <div class="hideShoppingCart" id="hide">
+                <i class="fas fa-angle-right fa-2x"></i>
+            </div>
+            <div class="shoppingCart">
+                <div class="shoppingTitle">
+                    <h4>Shopping Cart</h4>
+                </div>
+                <div class="shoppingList">
+                    <li>flower 1</li>
+                    <li>flower 2</li>
+                    <li>flower 3</li>
+                    <li>flower 4</li>
+                </div>
+                <div class="purchaseButton">
+                    <button>Purchase Flowers</button>
+                </div>
+            </div>
+        </div>
     </main>
     <footer>
 
     </footer>
 
-<!-- VENDOR SCRIPTS -->
-    <script src="scripts/handlebars-v4.12.js"></script>
+
 <!-- jQuery -->
     <script src="scripts/jquery-3.4.0.js"></script>
 <!-- APPLICATION SCRIPTS -->
