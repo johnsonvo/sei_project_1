@@ -2,13 +2,13 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const OrderSchema = new Schema({
-    userId:{
+    name:{
         type: Schema.Types.ObjectId, // This data type will be MongoDB Object ID
         ref: 'User' // Queries this Object ID will be pointed to the User collection
     },
     quantity:Number,
     price: String,
-    productId:{
+    flower:{
         type: Schema.Types.ObjectId, // This data type will be MongoDB Object ID
         ref: 'Flower' // Queries this Object ID will be pointed to the Flower collection
     },
