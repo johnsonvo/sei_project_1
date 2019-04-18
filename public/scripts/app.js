@@ -79,6 +79,11 @@ $('#registerFlower').click( () => {
     $('.flowerCreatePage').css('display', 'none');
 })
 
+// Hault Reloading the Page on Click
+$('#searchButton').click( (e) => {
+    e.preventDefault();
+})
+
 var usersList;
 var allUsers = [];
 
