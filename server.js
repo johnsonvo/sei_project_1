@@ -74,7 +74,7 @@ app.use((req, res, next) => {
 
 
 //Serve Static Assets
-app.use(express.static(__dirname + '/public'));
+app.use('/uploads', express.static(__dirname + '/public'));
 
 // Root Route
 app.get('/', (req,res) => {
@@ -203,17 +203,22 @@ app.post('/api/flowers', upload.single('avatar'), (req, res) => {
   });
 });
 
-
-// TODO: Create flower to extract file.path
-
-
-
 // Get Flower by ID
+// app.get('/api/flowers/:id', (req, res) => {
+//   db.Flower.findById(req.params.id, (err, fetchedFlower) => {
+//     if (err) return res.status(500).json({ msg: "Flower does not exist" });
+//     res.json(fetchedFlower);
+//   });
+// });
+
+// Get Flower by ID - version 2
 app.get('/api/flowers/:id', (req, res) => {
-  db.Flower.findById(req.params.id, (err, fetchedFlower) => {
-    if (err) return res.status(500).json({ msg: "Flower does not exist" });
-    res.json(fetchedFlower);
-  });
+  db.Flower.findById(req.params.id)
+    .populate('flower')
+    .exec((err, fetchedFlower) => {
+      if (err) return res.status(400).json({msg: 'Flower does not exist'});
+      res.json(fetchedFlower);
+    });
 });
 
 // Get Flower by ID - version 2 - WORKS
