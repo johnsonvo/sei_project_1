@@ -54,10 +54,7 @@ app.get('/', (req,res) => {
 ////////////////////
 // Get User
 app.get('/api/users', (req, res) => {
-  db.User.find()
-    .populate('order')
-    .populate('flower')
-    .exec((err, users) => {
+  db.User.find((err, users) => {
     if (err) {
       console.log('err: ' + err);
       res.sendStatus(500);
@@ -65,6 +62,7 @@ app.get('/api/users', (req, res) => {
     res.json(users);
   });
 });
+
 
 
 
@@ -76,25 +74,17 @@ app.post('/api/users', (req, res) => {
   });
 });
 
-
 // Get User by ID
 app.get('/api/users/:id', (req, res) => {
-  db.User.findById(req.params.id)
-    .populate('order')
-    .populate('flower')
-    .exec((err, fetchedUser) => {
+  db.User.findById(req.params.id, (err, fetchedUser) => {
     if (err) return res.status(400).json({ msg: "User ID not found" });
     res.json(fetchedUser);
-  });
+  })
 });
-
 
 // Update User by ID
 app.put("/api/users/:id", (req, res) => {
-  db.User.findByIdAndUpdate(req.params.id, req.body, {new: true})
-    .populate('order')
-    .populate('flower') 
-    .exec((err, updatedUser) => {
+  db.User.findByIdAndUpdate(req.params.id, req.body, {new: true}, (err, updatedUser) => {
     if (err) return res.status(400).json({ msg: "User ID not found" });
     res.json(updatedUser);
   });
@@ -102,17 +92,11 @@ app.put("/api/users/:id", (req, res) => {
 
 // Delete User by ID
 app.delete('/api/users/:id', (req, res) => {
-  db.User.findByIdAndRemove(req.params.id)
-    .populate('order')
-    .populate('flower') 
-    .exec((err, deletedUser) => {
+  db.User.findByIdAndRemove(req.params.id, (err, deletedUser) => {
     if (err) return res.status(400).json({ msg: "User ID not found" });
     res.json(deletedUser);
   });
 });
-
-
-
 
 
 /////////////////////
