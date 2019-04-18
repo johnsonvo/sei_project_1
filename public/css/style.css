@@ -269,7 +269,7 @@ button[type=submit] {
     margin-left: 1vw;
 }
 
-.shoppingList{
+.shoppingCartList{
     margin-left: 1vw;
 }
 
@@ -279,6 +279,12 @@ button[type=submit] {
 
 .purchaseButton{
     margin-bottom: 5vh;
+}
+
+.removeItemButton {
+    color: white;
+    background-color: grey;
+    border-radius: 1vh;
 }
 
 /* Footer __________________________________________ */
