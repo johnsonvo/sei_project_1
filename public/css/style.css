@@ -183,18 +183,15 @@ p {
     margin: auto;
     text-align: center;
     font-family: arial;
-    margin-top:50px;
-  }
+    margin-top: 50px;
+}
   
-  .title {
+.title {
     color: grey;
     font-size: 18px;
-  }
-  
-  
-  
-  
-  .deleteUser{
+}
+
+.deleteUser{
     border: none;
     outline: 0;
     display: inline-block;
@@ -216,12 +213,6 @@ a {
 .deleteUser:hover, a:hover {
     opacity: 0.7;
 }
-
-/* Create Flower __________________________________________ */
-/* .flowerCreatePage {
-    display: none;
-    height: 100vh;
-} */
 
 input[type=file] {
     display: flex;
