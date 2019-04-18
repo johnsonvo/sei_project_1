@@ -166,7 +166,6 @@ p {
     margin: 0;
 }
 
-<<<<<<< HEAD
 .userUploadImg {
     display: flex;
     flex-wrap: wrap;
@@ -176,7 +175,6 @@ p {
     background-color: #E4EBF4;
     border: none;
     border-radius: 1vw;
-=======
 
 /* style at app.js (ajex call) */
 .card {
@@ -220,11 +218,10 @@ a {
 }
 
 /* Create Flower __________________________________________ */
-.flowerCreatePage {
+/* .flowerCreatePage {
     display: none;
     height: 100vh;
->>>>>>> 9577e739a2ef76aee3dcc91644da01263fec33fc
-}
+} */
 
 input[type=file] {
     display: flex;
