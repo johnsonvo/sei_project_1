@@ -177,7 +177,7 @@ p {
     border-radius: 1vw;
 
 /* style at app.js (ajex call) */
-.card {
+/* .card {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     max-width: 300px;
     margin: auto;
@@ -202,7 +202,7 @@ p {
     cursor: pointer;
     width: 100%;
     font-size: 18px;
-}
+} */
 
 a {
     text-decoration: none;
