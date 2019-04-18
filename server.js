@@ -20,13 +20,13 @@ const storage = multer.diskStorage({
 });
 
 // Only allows jpegs and pngs as file types
-const fileFilter = (req, file, cb) => {
-  if (file.mimetype === 'image/jpeg' || file.mimetype === 'image/png') {
-    cb(null, true);
-  } else {
-    cb(new Error('File too large'), false);
-  }
-};
+// const fileFilter = (req, file, cb) => {
+//   if (file.mimetype === 'image/jpg' || file.mimetype === 'image/png' || file.mimetype === 'image/jpeg') {
+//     cb(null, true);
+//   } else {
+//     cb(new Error('File too large'), false);
+//   }
+// };
 
 // Stores uploads into multer storage above.
 const upload = multer({
@@ -35,7 +35,7 @@ const upload = multer({
   // Only allows files up to 5MB.
   fileSize: 1024 * 1024 * 5
   },
-  fileFilter: fileFilter
+  // fileFilter: fileFilter
 });
 
 // Database
@@ -142,102 +142,108 @@ app.delete('/api/users/:id', (req, res) => {
 // FLOWERS ROUTES //
 ///////////////////
 // Get Flower - working
-// app.get("/api/flowers", (req, res) => {
-//   db.Flower.find((err, flowers) => {
-//     if (err) {
-//       console.log('error: ' + err);
-//       res.sendStatus(500);
-//     }
-//     res.json(flowers);
-//   });
-// });
-
-// Get Flower - with image and id - multer - WORKS
 app.get("/api/flowers", (req, res) => {
-  db.Flower.find()
-    .select("name price _id avatar")
-    .exec()
-    .then(docs => {
-      const response = {
-        count: docs.length,
-        products: docs.map(doc => {
-          return {
-            name: doc.name,
-            price: doc.price,
-            avatar: doc.avatar,
-            _id: doc._id,
-            request: {
-              type: "GET",
-              url: "http://localhost:3000/api/flowers" + doc._id
-            }
-          };
-        })
-      };
-      //   if (docs.length >= 0) {
-      res.status(200).json(response);
-      //   } else {
-      //       res.status(404).json({
-      //           message: 'No entries found'
-      //       });
-      //   }
-    })
-    .catch(err => {
-      console.log(err);
-      res.status(500).json({
-        error: err
-      });
-    });
-});
-
-// Create flower with Multer - working version
-app.post('/api/flowers', upload.single('avatar'), (req, res) => {
-  console.log(req.file);
-  db.Flower.create(req.body, (err, newFlower) => {
-    if (err) return res.status(500).json({ msg: 'Something goofed. Please try again!' });
-    res.json(newFlower);
+  db.Flower.find((err, flowers) => {
+    if (err) {
+      console.log('error: ' + err);
+      res.sendStatus(500);
+    }
+    res.json(flowers);
   });
 });
+
+// Get Flower - with image and id - multer - WORKS
+// app.get("/api/flowers", (req, res) => {
+//   db.Flower.find()
+//     .select("name price _id avatar")
+//     .exec()
+//     .then(docs => {
+//       const response = {
+//         count: docs.length,
+//         products: docs.map(doc => {
+//           return {
+//             name: doc.name,
+//             price: doc.price,
+//             avatar: doc.avatar,
+//             _id: doc._id,
+//             request: {
+//               type: "GET",
+//               url: "http://localhost:3000/api/flowers" + doc._id
+//             }
+//           };
+//         })
+//       };
+//       //   if (docs.length >= 0) {
+//       res.status(200).json(response);
+//       //   } else {
+//       //       res.status(404).json({
+//       //           message: 'No entries found'
+//       //       });
+//       //   }
+//     })
+//     .catch(err => {
+//       console.log(err);
+//       res.status(500).json({
+//         error: err
+//       });
+//     });
+// });
+
+// Create flower with multer version 2 - WORKING!!
+app.post('/api/flowers', upload.single('avatar'), (req, res) => {
+  const newFlower = new db.Flower({
+    name: req.body.name,
+    price: req.body.price,
+    avatar: req.file.path
+  });
+  newFlower.save((err, savedFlower) => {
+    if (err) return console.log(`save error: ${err}`);
+    console.log('saved ' + savedFlower.name);
+    res.json(savedFlower);
+  });
+});
+
 
 // TODO: Create flower to extract file.path
 
 
 
 // Get Flower by ID
-// app.get('/api/flowers/:id', (req, res) => {
-//   db.Flower.findById(req.params.id, (err, fetchedFlower) => {
-//     if (err) return res.status(500).json({ msg: "Flower does not exist" });
-//     res.json(fetchedFlower);
-//   });
-// });
+app.get('/api/flowers/:id', (req, res) => {
+  db.Flower.findById(req.params.id, (err, fetchedFlower) => {
+    if (err) return res.status(500).json({ msg: "Flower does not exist" });
+    res.json(fetchedFlower);
+  });
+});
 
 // Get Flower by ID - version 2 - WORKS
 // TODO: Needs to fetch by name
-app.get('/api/flowers/:id', (req, res) => {
-  const id = req.params.id;
-  db.Flower.findById(id)
-    .select('name price _id avatar season')
-    .exec()
-    .then(doc => {
-      console.log("From database", doc);
-      if (doc) {
-        res.status(200).json({
-          product: doc,
-          request: {
-            type: 'GET',
-            url: 'http://localhost:3000/api/flowers'
-          }
-        });
-      } else {
-        res
-          .status(404)
-          .json({ message: "No valid entry found for provided ID" });
-      }
-    })
-    .catch(err => {
-      console.log(err);
-      res.status(500).json({ error: err });
-    });
-});
+// app.get('/api/flowers/:id', (req, res) => {
+//   const id = req.params.id;
+//   db.Flower.findById(id)
+//     .select('name price _id avatar season')
+//     .exec()
+//     .then(doc => {
+//       console.log("From database", doc);
+//       if (doc) {
+//         res.status(200).json({
+//           product: doc,
+//           request: {
+//             type: 'GET',
+//             url: 'http://localhost:3000/api/flowers'
+//           }
+//         });
+//       } else {
+//         res
+//           .status(404)
+//           .json({ message: "No valid entry found for provided ID" });
+//       }
+//     })
+//     .catch(err => {
+//       console.log(err);
+//       res.status(500).json({ error: err });
+//     });
+// });
 
 
 // Update Flower by ID
