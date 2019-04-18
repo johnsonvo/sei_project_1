@@ -126,7 +126,7 @@ $(document).ready(function(){
 function getUserHtml(user){
     return `<hr>
         <div class="card">
-        <img src="${user. avatar}" alt="${user. fullName}" style="width:100%">
+        <img src="" alt="${user. fullName}" style="width:100%">
         <h1>${user. fullName}</h1>
         <p class="title">${user. email}</p>
         <p class="title">${user. dateOfBirth}</p>

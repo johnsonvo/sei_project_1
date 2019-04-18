@@ -20,13 +20,13 @@ const storage = multer.diskStorage({
 });
 
 // Only allows jpegs and pngs as file types
-const fileFilter = (req, file, cb) => {
-  if (file.mimetype === 'image/jpeg' || file.mimetype === 'image/png') {
-    cb(null, true);
-  } else {
-    cb(new Error('File too large'), false);
-  }
-};
+// const fileFilter = (req, file, cb) => {
+//   if (file.mimetype === 'image/jpeg' || file.mimetype === 'image/png') {
+//     cb(null, true);
+//   } else {
+//     cb(new Error('File too large'), false);
+//   }
+// };
 
 // Stores uploads into multer storage above.
 const upload = multer({
@@ -35,7 +35,7 @@ const upload = multer({
   // Only allows files up to 5MB.
   fileSize: 1024 * 1024 * 5
   },
-  fileFilter: fileFilter
+  // fileFilter: fileFilter
 });
 
 // Database
