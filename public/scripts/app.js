@@ -128,11 +128,11 @@ function getUserHtml(user){
     return `<hr>
             
         <div class="card">
-        <img src="${user. avatar}" alt="${user. fullName}" style="width:100%">
-        <h1>${user. fullName}</h1>
-        <p class="title">${user. email}</p>
-        <p class="title">${user. dateOfBirth}</p>
-        <p>Flower: ${user. flower}</p>
+        <img src="" alt="${user.fullName}" style="width:100%;">
+        <h1>${user.fullName}</h1>
+        <p class="title">${user.email}</p>
+        <p class="title">${user.dateOfBirth}</p>
+        <p>Flower: ${user.flower}</p>
         <div style="margin: 24px 0;">
             <a class="userLink" href="#"><i class="fab fa-dribbble"></i></a> 
             <a class="userLink" href="#"><i class="fab fa-twitter"></i></a>  
