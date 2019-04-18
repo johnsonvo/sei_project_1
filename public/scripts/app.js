@@ -79,6 +79,26 @@ $('#registerFlower').click( () => {
     $('.flowerCreatePage').css('display', 'none');
 })
 
+// Hault Reloading the Page on Click
+$('#searchButton').click( (e) => {
+    e.preventDefault();
+})
+
+// Adds Product Clicked to the Shopping Cart
+$('.flowers').on('click', '#addToCart', (e) => {
+    const listItem = 
+        `<li class="addedRose">Rose Product <button class="removeItemButton" id="removeItem">X</button></li>`;
+    $('.shoppingList').prepend(listItem);
+});
+
+// Removes Product Clicked to the Shopping Cart
+$('.shoppingList').on('click', '#removeItem', removeItem);
+function removeItem() {
+    $(this).parent().remove();
+};
+
+// ____________________________________ //
+
 var usersList;
 var allUsers = [];
 

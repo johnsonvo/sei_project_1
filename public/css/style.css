@@ -255,64 +255,30 @@ button[type=submit] {
 /* Profile __________________________________________ */
 .profilePage {
     display: none;
-    height: 84vh;
 }
 
-.profileData {
+.profiles {
     display: flex;
-    flex-direction: row;
-    width: 50vw;
-    margin: 0 auto;
-    background-color: #C9CED3;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    width: 96vw;
+    margin: 0 2vw 0 2vw;
+}
+
+.profileTextFields {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 22vw;
+    height: 30vw;
+    margin: 1vw;
+    background-color: #E4EBF4;
+    filter: drop-shadow(0 0 0.5rem grey);
 }
 
 .profileImg {
     width: 20vw;
     height: 20vw;
-}
-
-.profileContect {
-    display: flex;
-    flex-direction: column;
-}
-
-.productFavoriteButtons {
-    display: flex;
-    margin-left: 1vw;
-}
-
-.productButton {
-    background-color: beige;
-    
-}
-
-.favoriteButton {
-    background-color: beige;
-    margin-left: 1vw;
-}
-
-.products {
-    display: none;
-    flex-wrap: wrap;
-}
-
-.productImgs {
-    margin: 1vw auto;
-    width: 22vw;
-    height: 22vw;
-    border: 1px solid black;
-}
-
-.favorites {
-    display: none;
-    flex-wrap: wrap;
-}
-
-.favoriteImgs {
-    margin: 1vw auto;
-    width: 22vw;
-    height: 22vw;
-    border: 1px solid black;
 }
 
 /* Shopping Cart __________________________________________ */
@@ -352,7 +318,7 @@ button[type=submit] {
     margin-left: 1vw;
 }
 
-.shoppingList{
+.shoppingCartList{
     margin-left: 1vw;
 }
 
@@ -362,6 +328,12 @@ button[type=submit] {
 
 .purchaseButton{
     margin-bottom: 5vh;
+}
+
+.removeItemButton {
+    color: white;
+    background-color: grey;
+    border-radius: 1vh;
 }
 
 /* Footer __________________________________________ */

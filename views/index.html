@@ -40,58 +40,58 @@
             <div class="searchMarket">
                 <form class="searchBar">
                     <input type="text" placeholder="Search for Flower" name="search">
-                    <button type="submit">Search</i></button>
+                    <button type="submit" id="searchButton">Search</i></button>
                 </form>
             </div>
             <div class="flowers">
-                    <a class="flowerCardImgs" id="flower_1">
-                        <img class="flowerImgs" src="/images/rose1.png" alt="" />
-                        <p>Flower Name</p>
-                        <p>Flower Type</p>
-                        <p>Season of Bloom</p>
-                        <p>Price per Clipping</p>
-                        <button>Add to Cart</button>
-                    </a>
-                    <a class="flowerCardImgs" id="flower_2">
-                        <img class="flowerImgs" src="/images/rose2.png" alt="" />
-                        <p>Flower Name</p>
-                        <p>Flower Type</p>
-                        <p>Season of Bloom</p>
-                        <p>Price per Clipping</p>
-                        <button>Add to Cart</button>
-                    </a>
-                    <a class="flowerCardImgs" id="flower_3">
-                        <img class="flowerImgs" src="/images/rose3.png" alt="" />
-                        <p>Flower Name</p>
-                        <p>Flower Type</p>
-                        <p>Season of Bloom</p>
-                        <p>Price per Clipping</p>
-                        <button>Add to Cart</button>
-                    </a>
-                    <a class="flowerCardImgs" id="flower_4">
-                        <img class="flowerImgs" src="/images/rose4.png" alt="" />
-                        <p>Flower Name</p>
-                        <p>Flower Type</p>
-                        <p>Season of Bloom</p>
-                        <p>Price per Clipping</p>
-                        <button>Add to Cart</button>
-                    </a>
-                    <a class="flowerCardImgs" id="flower_5">
-                        <img class="flowerImgs" src="/images/rose5.png" alt="" />
-                        <p>Flower Name</p>
-                        <p>Flower Type</p>
-                        <p>Season of Bloom</p>
-                        <p>Price per Clipping</p>
-                        <button>Add to Cart</button>
-                    </a>
-                    <a class="flowerCardImgs" id="flower_6">
-                            <img class="flowerImgs" src="/images/rose3.png" alt="" />
-                            <p>Flower Name</p>
-                            <p>Flower Type</p>
-                            <p>Season of Bloom</p>
-                            <p>Price per Clipping</p>
-                            <button>Add to Cart</button>
-                        </a>
+                <div class="flowerCardImgs" id="flower_1">
+                    <img class="flowerImgs" src="/images/rose1.png" alt="" />
+                    <p>Flower Name</p>
+                    <p>Flower Type</p>
+                    <p>Season of Bloom</p>
+                    <p>Price per Clipping</p>
+                    <button id="addToCart">Add to Cart</button>
+                </div>
+                <div class="flowerCardImgs" id="flower_2">
+                    <img class="flowerImgs" src="/images/rose2.png" alt="" />
+                    <p>Flower Name</p>
+                    <p>Flower Type</p>
+                    <p>Season of Bloom</p>
+                    <p>Price per Clipping</p>
+                    <button id="addToCart">Add to Cart</button>
+                </div>
+                <div class="flowerCardImgs" id="flower_3">
+                    <img class="flowerImgs" src="/images/rose3.png" alt="" />
+                    <p>Flower Name</p>
+                    <p>Flower Type</p>
+                    <p>Season of Bloom</p>
+                    <p>Price per Clipping</p>
+                    <button id="addToCart">Add to Cart</button>
+                </div>
+                <div class="flowerCardImgs" id="flower_4">
+                    <img class="flowerImgs" src="/images/rose4.png" alt="" />
+                    <p>Flower Name</p>
+                    <p>Flower Type</p>
+                    <p>Season of Bloom</p>
+                    <p>Price per Clipping</p>
+                    <button id="addToCart">Add to Cart</button>
+                </div>
+                <div class="flowerCardImgs" id="flower_5">
+                    <img class="flowerImgs" src="/images/rose5.png" alt="" />
+                    <p>Flower Name</p>
+                    <p>Flower Type</p>
+                    <p>Season of Bloom</p>
+                    <p>Price per Clipping</p>
+                    <button id="addToCart">Add to Cart</button>
+                </div>
+                <div class="flowerCardImgs" id="flower_6">
+                    <img class="flowerImgs" src="/images/rose3.png" alt="" />
+                    <p>Flower Name</p>
+                    <p>Flower Type</p>
+                    <p>Season of Bloom</p>
+                    <p>Price per Clipping</p>
+                    <button id="addToCart">Add to Cart</button>
+                </div>
             </div>
         </div>
 
@@ -142,36 +142,52 @@
 ---------------->
         <div class="profilePage">
             <h2>User Profile</h2>
-            <div class="profileData">
-                <img class="profileImg" src="#" alt="Profile Picture" />
-                <div class="profileTextFields">
-                    <p>Name</p>
-                    <p>email</p>
-                    <p>Date of Birth</p>
-                    <p>Number of Products</p>
+            <div class="profiles"> <!-- id='userTarget' -->
+                <div class="profileTextFields" id="user_1">
+                    <img class="profileImg" src="/images/tim.jpg" alt="Profile Picture" />
+                    <p>Tim Austin</p>
+                    <p>tim.austin99@example.com</p>
+                    <p>6/5/1984</p>
+                    <p>4</p>
+                    <button>See Products</button>
+                    <!-- Clicking directs to market and provides search query for that user -->
                 </div>
-            </div>
-            <div class="profileContent">
-                <div class="productFavoriteButtons">
-                    <button class="productButton" id="showProduct">Products</button>
-                    <button class="favoriteButton" id="showFavorite">Favorites</button>
+                <div class="profileTextFields" id="user_2">
+                        <img class="profileImg" src="/images/tanya.jpg" alt="Profile Picture" />
+                        <p>Tanya Bradley</p>
+                        <p>tanya.bradley88@example.com</p>
+                        <p>8/6/1985</p>
+                        <p>5</p>
+                        <button>See Products</button>
+                        <!-- Clicking directs to market and provides search query for that user -->
                 </div>
-                <div class="products">
-                    <a class="productImgs">Product 1</a>
-                    <a class="productImgs">Product 2</a>
-                    <a class="productImgs">Product 3</a>
-                    <a class="productImgs">Product 4</a>
-                    <a class="productImgs">Product 5</a>
+                <div class="profileTextFields" id="user_3">
+                        <img class="profileImg" src="/images/roberto.jpg" alt="Profile Picture" />
+                        <p>Roberto Vargas</p>
+                        <p>roberto.vargas48@example.com</p>
+                        <p>8/5/1985</p>
+                        <p>1</p>
+                        <button>See Products</button>
+                        <!-- Clicking directs to market and provides search query for that user -->
                 </div>
-                <div class="favorites">
-                    <a class="favoriteImgs">Favorite 1</a>
-                    <a class="favoriteImgs">Favorite 2</a>
-                    <a class="favoriteImgs">Favorite 3</a>
-                    <a class="favoriteImgs">Favorite 4</a>
-                    <a class="favoriteImgs">Favorite 5</a>
+                <div class="profileTextFields" id="user_4">
+                        <img class="profileImg" src="/images/idna.jpg" alt="Profile Picture" />
+                        <p>Idna Carpenter</p>
+                        <p>idna.carpenter67@example.com</p>
+                        <p>6/2/1973</p>
+                        <p>10</p>
+                        <button>See Products</button>
+                        <!-- Clicking directs to market and provides search query for that user -->
                 </div>
-            </div>
-            <div id='userTarget'>    
+                <div class="profileTextFields" id="user_5">
+                        <img class="profileImg" src="/images/bobby.jpg" alt="Profile Picture" />
+                        <p>Bobby Matthews</p>
+                        <p>bobby.matthews62@example.com</p>
+                        <p>7/1/1985</p>
+                        <p>0</p>
+                        <button>See Products</button>
+                        <!-- Clicking directs to market and provides search query for that user -->
+                </div>
             </div>
         </div>
 <!--------------
@@ -185,11 +201,9 @@
                 <div class="shoppingTitle">
                     <h4>Shopping Cart</h4>
                 </div>
-                <div class="shoppingList">
-                    <li>flower 1</li>
-                    <li>flower 2</li>
-                    <li>flower 3</li>
-                    <li>flower 4</li>
+                <div class="shoppingCartList">
+                    <ul class="shoppingList">
+                    </ul>
                 </div>
                 <div class="purchaseButton">
                     <button>Purchase Flowers</button>
