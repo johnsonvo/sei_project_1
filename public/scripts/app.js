@@ -4,6 +4,7 @@ console.log('sanity check');
 $('#navLogo').click ( () => {
     $('#landingPage').css('display', 'flex');
     $('main').css('display', 'none');
+    $('footer').css('display', 'none');
 })
 
 // Reveal Market
@@ -11,6 +12,7 @@ $('#landingPage').click( () => {
     $('.marketPlace').css('display', 'block');
     $('#landingPage').css('display', 'none');
     $('main').css('display', 'block');
+    $('footer').css('display', 'flex');
 });
 
 $('#navMarket').click( () => {

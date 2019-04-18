@@ -2,13 +2,15 @@
 Body {
     display: flex;
     flex-direction: column;
+    justify-content: center;
     font-family: Arial, Helvetica, sans-serif;
     font-weight: 300;
     margin: 0;
+    background-color: #E4EBF4;
 }
 
 h2{
-    margin: 0;
+    margin: 0 auto;
 }
 
 .header {
@@ -23,8 +25,10 @@ main {
     display: none;
 }
 
-input{
+input {
+    height: 2vh;
     margin: .5vh;
+    border-radius: 0.5vh;
 }
 
 .headerTop {
@@ -77,10 +81,10 @@ nav {
 
 .topNav {
     padding: 1vw;
-    font-size: 2vh;
+    font-size: 3vh;
     font-family: Arial, Helvetica, sans-serif;
     font-weight: 900;
-    color: white;
+    color: #E4EBF4;
 }
 
 /* Market __________________________________________ */
@@ -94,11 +98,16 @@ nav {
     margin: 2vw 1vw 2vw 0;
 }
 
+.searchBar {
+    height: 5vh;
+}
+
 .flowers {
     display: flex;
     flex-wrap: wrap;
     justify-content: flex-start;
-    margin-left: 2vw;
+    width: 96vw;
+    margin: 0 2vw 0 2vw;
 }
 
 .flowerCardImgs {
@@ -108,7 +117,7 @@ nav {
     width: 22vw;
     height: 30vw;
     margin: 1vw;
-    background-color: white;
+    background-color: #E4EBF4;
     filter: drop-shadow(0 0 0.5rem grey);
 }
 
@@ -128,6 +137,7 @@ p {
     display: none;
     justify-content: center;
     align-content: center;
+    height: 84vh;
 }
 
 .forms {
@@ -136,13 +146,8 @@ p {
     justify-content: space-around;
     width: 30vw;
     height: 30vw;
-    background-color: rgb(184, 178, 127);
+    background-color: #C9CED3;
     border-radius: 1vw;
-}
-
-.formImg{
-    width: 20vw;
-    height: 20vw;
 }
 
 .textFields {
@@ -163,31 +168,45 @@ p {
 
 .userUploadImg {
     display: flex;
-    justify-content: center;
-    align-content: center;
+    flex-wrap: wrap;
     height: 10vw;
     width: 10vw;
-    background-color: white;
+    margin-bottom: 1vh;
+    background-color: #E4EBF4;
+    border: none;
     border-radius: 1vw;
+}
+
+input[type=file] {
+    display: flex;
+    flex-wrap: wrap;
+    color: black;
+}
+
+button[type=submit] {
+    width: 10vw;
+    margin: 0 auto;
 }
 
 
 /* Create Flower __________________________________________ */
 .flowerCreatePage {
     display: none;
-    height: 100vh;
+    justify-content: center;
+    align-content: center;
+    height: 84vh;
 }
 
 .formInputFlowers {
     display: flex;
     flex-direction: row;
-    background-color: rgb(184, 178, 127);
+    background-color: #C9CED3;
 }
 
 /* Profile __________________________________________ */
 .profilePage {
     display: none;
-    height: 100vh;
+    height: 84vh;
 }
 
 .profileData {
@@ -195,7 +214,7 @@ p {
     flex-direction: row;
     width: 50vw;
     margin: 0 auto;
-    background-color: rgb(184, 178, 127);
+    background-color: #C9CED3;
 }
 
 .profileImg {
@@ -267,7 +286,7 @@ p {
 }
 
 .fa-angle-right {
-    color: white;
+    color: #E4EBF4;
 }
 
 .shoppingCart{
@@ -292,11 +311,34 @@ p {
     margin-left: 1vw;
 }
 
-/* .shoppingTitle{
-} */
-
 .purchaseButton{
     margin-bottom: 5vh;
+}
+
+/* Footer __________________________________________ */
+
+footer {
+    display: none;
+    width: 50vw;
+    height: 8vh;
+    margin: 0 auto;
+}
+
+.icons {
+    margin: 0 auto;
+}
+
+.fa-instagram {
+    padding: 1vw;
+}
+.fa-facebook-square {
+    padding: 1vw;
+}
+.fa-google-plus-square {
+    padding: 1vw;
+}
+.fa-linkedin {
+    padding: 1vw;
 }
 
 /* Ipad Screen */

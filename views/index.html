@@ -99,7 +99,7 @@
     Create User 
 ---------------->
         <div class="userCreatePage">
-            <form class="forms" id="newUserForm" action="/profile" method="post" enctype="multipart/form-data">
+            <form action="/profile" method="post" enctype="multipart/form-data" class="forms" id="newUserForm" >
                 <h2>Create User</h2>
                 <div class="formInputUsers">
                     <div class="userUploadImg">
@@ -121,12 +121,12 @@
     Create Flower 
 ---------------->
         <div class="flowerCreatePage">
-            <h2>Create Flower</h2>
-            <form class="forms" id="newFlowerForm">
-                <div class="formInputFlowers">
-                    <form action="/profile" method="post" enctype="multipart/form-data" class="formImg">
+            <form action="/profile" method="post" enctype="multipart/form-data" class="forms" id="newFlowerForm">
+                <h2>Create Flower</h2>
+                <div class="formInputUsers">
+                    <div class="userUploadImg">
                         <input type="file" name="avatar" />
-                    </form>
+                    </div>
                     <div class="textFields">
                         <input type="text" name="name" placeholder="Flower Name" />
                         <input type="text" name="type" placeholder="Type of Flower" />
@@ -198,9 +198,13 @@
         </div>
     </main>
     <footer>
-
+        <div class="icons">
+            <i class="fab fa-instagram fa-3x"></i>
+            <i class="fab fa-facebook-square fa-3x"></i>
+            <i class="fab fa-google-plus-square fa-3x"></i>
+            <i class="fab fa-linkedin fa-3x"></i>
+        </div>
     </footer>
-
 
 <!-- jQuery -->
     <script src="scripts/jquery-3.4.0.js"></script>
