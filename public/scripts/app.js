@@ -98,7 +98,6 @@ $(document).ready(function(){
         success: handleSuccess,
         error: handleError
     });
-
 // this.  will work on ES5 
     $('#newUserForm').on('submit', function(e) {
         console.log($(this).serialize());
@@ -112,9 +111,6 @@ $(document).ready(function(){
         error: newUserError
         });
     });
-
-
-
     $usersList.on('click', '.deleteBtn', (function () {
         // console.log($(this));
         console.log('clicked delete button to', '/api/users/'+$(this).attr('data-id'));
@@ -125,13 +121,10 @@ $(document).ready(function(){
         error: deleteUserError
         });
     }));
-
-
 });
 
 function getUserHtml(user){
     return `<hr>
-            
         <div class="card">
         <img src="${user. avatar}" alt="${user. fullName}" style="width:100%">
         <h1>${user. fullName}</h1>
