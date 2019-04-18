@@ -12,6 +12,7 @@ $('#landingPage').click( () => {
     $('.marketPlace').css('display', 'block');
     $('#landingPage').css('display', 'none');
     $('main').css('display', 'block');
+    $('.ourTeam').css('display', 'none');
     $('footer').css('display', 'flex');
 });
 
@@ -20,6 +21,7 @@ $('#navMarket').click( () => {
     $('.userCreatePage').css('display', 'none');
     $('.flowerCreatePage').css('display', 'none');
     $('.profilePage').css('display', 'none');
+    $('.ourTeam').css('display', 'none');
 });
 
 // Reveal User Create
@@ -28,6 +30,7 @@ $('#navCreateUser').click( () => {
     $('.marketPlace').css('display', 'none');
     $('.flowerCreatePage').css('display', 'none');
     $('.profilePage').css('display', 'none');
+    $('.ourTeam').css('display', 'none');
 });
 
 // Reveal Profile
@@ -36,11 +39,37 @@ $('#navProfile').click( () => {
     $('.userCreatePage').css('display', 'none');
     $('.marketPlace').css('display', 'none');
     $('.flowerCreatePage').css('display', 'none');
+    $('.ourTeam').css('display', 'none');
 });
 
 // Reveal Flower Create
 $('#navCreateFlower').click( () => {
     $('.flowerCreatePage').css('display', 'flex');
+    $('.marketPlace').css('display', 'none');
+    $('.userCreatePage').css('display', 'none');
+    $('.profilePage').css('display', 'none');
+    $('.ourTeam').css('display', 'none');
+});
+
+// Reveal Profile Products
+$('#showProduct').click( () => {
+    $('.products').css('display', 'flex');
+    $('.favorites').css('display', 'none');
+    $('.ourTeam').css('display', 'none');
+});
+
+// Reveal Profile Favorites
+$('#showFavorite').click( () => {
+    $('.favorites').css('display', 'flex');
+    $('.products').css('display', 'none');
+    $('.ourTeam').css('display', 'none');
+});
+
+
+// Reveal OurTeam
+$('#navTeam').click( () => {
+    $('.ourTeam').css('display', 'flex');
+    $('.flowerCreatePage').css('display', 'none');
     $('.marketPlace').css('display', 'none');
     $('.userCreatePage').css('display', 'none');
     $('.profilePage').css('display', 'none');
@@ -126,16 +155,16 @@ $(document).ready(function(){
 function getUserHtml(user){
     return `<hr>
         <div class="card">
-        <img src="" alt="${user. fullName}" style="width:100%">
-        <h1>${user. fullName}</h1>
-        <p class="title">${user. email}</p>
-        <p class="title">${user. dateOfBirth}</p>
-        <p>Flower: ${user. flower}</p>
+        <img src="" alt="${user.fullName}" style="width:100%;">
+        <h1>${user.fullName}</h1>
+        <p class="title">${user.email}</p>
+        <p class="title">${user.dateOfBirth}</p>
+        <p>Flower: ${user.flower}</p>
         <div style="margin: 24px 0;">
-            <a href="#"><i class="fa fa-dribbble"></i></a> 
-            <a href="#"><i class="fa fa-twitter"></i></a>  
-            <a href="#"><i class="fa fa-linkedin"></i></a>  
-            <a href="#"><i class="fa fa-facebook"></i></a> 
+            <a class="userLink" href="#"><i class="fab fa-dribbble"></i></a> 
+            <a class="userLink" href="#"><i class="fab fa-twitter"></i></a>  
+            <a class="userLink" href="#"><i class="fab fa-linkedin"></i></a>  
+            <a class="userLink" href="#"><i class="fab fa-facebook"></i></a> 
         </div>
         
         <button type="button" name="button" class="deleteUser  deleteBtn btn btn-danger pull-right" data-id=${user._id}>Delete</button>
