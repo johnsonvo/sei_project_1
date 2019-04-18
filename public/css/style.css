@@ -175,8 +175,9 @@ p {
     background-color: #E4EBF4;
     border: none;
     border-radius: 1vw;
+}
 
-/* style at app.js (ajex call) */
+
 .card {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     max-width: 300px;
@@ -235,7 +236,7 @@ button[type=submit] {
 }
 
 .formInputFlowers {
-    display: flex;
+    display: none;
     flex-direction: row;
     background-color: #C9CED3;
 }
