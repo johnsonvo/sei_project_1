@@ -145,7 +145,7 @@ function getUserHtml(user){
     return `<hr>
             
         <div class="card">
-        <img src="https://avatars2.githubusercontent.com/u/40311605?s=460&v=4" alt="${user. fullName}" style="width:100%">
+        <img class="profileImg" src="https://avatars2.githubusercontent.com/u/40311605?s=460&v=4" alt="${user. fullName}">
         <img src="${user. avatar}" alt="${user. fullName}" style="width:100%">
         <h1>${user. fullName}</h1>
         <p class="title">${user. email}</p>
