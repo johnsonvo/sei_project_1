@@ -17,10 +17,26 @@ const storage = multer.diskStorage({
     // callback function to rename with date and original file name.
     cb(null, new Date().toISOString() + file.originalname);
   }
-})
+});
+
+// Only allows jpegs and pngs as file types
+const fileFilter = (req, file, cb) => {
+  if (file.mimetype === 'image/jpeg' || file.mimetype === 'image/png') {
+    cb(null, true);
+  } else {
+    cb(new Error('File too large'), false);
+  }
+};
 
 // Stores uploads into multer storage above.
-const upload = multer({ storage: storage });
+const upload = multer({
+  storage: storage,
+  limits: {
+  // Only allows files up to 5MB.
+  fileSize: 1024 * 1024 * 5
+  },
+  fileFilter: fileFilter
+});
 
 // Database
 mongoose.Promise = global.Promise;
@@ -135,14 +151,6 @@ app.get("/api/flowers", (req, res) => {
     res.json(flowers);
   });
 });
-
-// Create Flower
-// app.post('/api/flowers', (req, res) => {
-//   db.Flower.create(req.body, (err, newFlower) => {
-//     if (err) return res.status(500).json({ msg: 'Something goofed. Please try again!' });
-//     res.json(newFlower);
-//   });
-// });
 
 // Create flower with Multer
 app.post('/api/flowers', upload.single('avatar'), (req, res) => {
