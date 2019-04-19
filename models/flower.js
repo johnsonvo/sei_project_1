@@ -4,8 +4,6 @@ const Schema = mongoose.Schema;
 const FlowerSchema = new Schema({
 
     name:String,
-    // img url will use String
-    // avatar: { type: String, required: true },
     price: String || Number,
     type: String,
     season:String,

@@ -1,4 +1,4 @@
-/* All __________________________________________ */
+
 Body {
     display: flex;
     flex-direction: column;
@@ -59,8 +59,6 @@ input {
     color: #BE2030;
 }
 
-/* Nav __________________________________________ */
-
 nav {
     display: flex;
     justify-content: space-between;
@@ -102,7 +100,6 @@ nav {
     color: transparent;
 }
 
-/* Market __________________________________________ */
 .marketPlace {
     display: none;
 }
@@ -176,8 +173,6 @@ p {
     border-radius: 0 0 1vw 1vw;
 }
 
-
-/* Create User __________________________________________ */
 .userCreatePage {
     display: none;
     justify-content: center;
@@ -275,8 +270,6 @@ button[type=submit] {
     margin: 0 auto;
 }
 
-
-/* Create Flower __________________________________________ */
 .flowerCreatePage {
     display: none;
     justify-content: center;
@@ -290,7 +283,6 @@ button[type=submit] {
     background-color: #C9CED3;
 }
 
-/* Profile __________________________________________ */
 .profilePage {
     display: none;
     flex-direction: column;
@@ -328,7 +320,6 @@ button[type=submit] {
     border-radius: 1vh 1vh 0 0;
 }
 
-/* Our Team __________________________________________ */
 html {
     box-sizing: border-box;
 }
@@ -408,8 +399,6 @@ html {
     border-radius: 1vh 1vh 0 0;
 }
 
-/* Shopping Cart __________________________________________ */
-
 .cart{
     display: none;
     position: fixed;
@@ -463,8 +452,6 @@ html {
     border-radius: 1vw;
 }
 
-/* Footer __________________________________________ */
-
 footer {
     display: none;
     width: 50vw;
@@ -509,7 +496,6 @@ footer {
     }
 }
 
-/* Weird in-between nav situation */
 @media only screen and (max-width: 736px) {
     .rightSide {
         display: none;
@@ -537,7 +523,6 @@ footer {
     }
 }
 
-/* Iphone Screen */
 @media only screen and (max-width: 500px) {
     .flowerCardImgs {
         width: 46vw;
