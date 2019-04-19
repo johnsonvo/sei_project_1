@@ -1,16 +1,17 @@
-# sei_project_1
 
-# App Name
+# Compass Rose 
+<img class="headerLogo" src="/images/crLogo.png" alt="Compass Rose Logo" />
 
-*Short explanation of the project (1-2 sentences) - what is the goal of the project and/or main functionality?*
+This app creates a location for custom flower breaders to create a profile and post their products.
 
-[Link to project hosted on Heroku]()
+[Link to project hosted on Heroku](https://compassrose.herokuapp.com/)
 
 ## Technologies Used
 
-*What technologies did you use to develop this project? (bullet points)*
-
-
+* HTML & CSS
+* Javascript & JQuery
+* MongoDB, Heroku, & Github
+* Express, Mongoose, & Body-Parser
 
 ## Existing Features
 
