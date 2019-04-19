@@ -103,9 +103,9 @@ $('#searchButton').click( (e) => {
 
 // Adds Product Clicked to the Shopping Cart
 $('.flowers').on('click', '#addToCart', (e) => {
-    const listItem = 
-        `<li class="addedRose">Rose Product <button class="removeItemButton" id="removeItem">X</button></li>`;
-    $('.shoppingList').prepend(listItem);
+    const itemList = 
+`<li class="addedRose">${flower.name} ${flower.price}<button class="removeItemButton" id="removeItem">X</button></li>`;
+    $('.shoppingList').prepend(itemList);
 });
 
 // Removes Product Clicked to the Shopping Cart
@@ -286,8 +286,7 @@ function deleteUserError(){
 
 
 function getFlowerHtml(flower){
-    return 
-    `<hr>
+    return `
     <div class="cardFlower">
     <img src="" alt="${flower.name}" style="width:100%;">
     <h1>${flower.name}</h1>
@@ -295,19 +294,11 @@ function getFlowerHtml(flower){
     <p class="title">${flower.season}</p>
     <p>Flower: ${flower.price}</p>
     
-    
+    <button id="addToCart">Add to Cart</button>
     <button type="button" name="button" class="deleteBtnFlower  deleteBtnFlower btn btn-danger pull-right" data-id=${flower._id}>Delete</button>
     </div>`;
 
 };
-
-
-
-
-
-
-
-
 
 function getAllFlowersHtml(flowers){
     console.log(flowers)

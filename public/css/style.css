@@ -117,7 +117,7 @@ nav {
     display: flex;
     flex-wrap: wrap;
     justify-content: flex-start;
-    width: 96vh;
+    width: 96vw;
     height: 84vh;
     margin: 0 2vw 0 2vw;
 }
