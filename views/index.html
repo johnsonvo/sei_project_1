@@ -27,6 +27,7 @@
             <div class="leftSide">
                 <img class="navLogo" id="navLogo" src="/images/crTitle.png" alt="Compass Rose Logo" />
             </div>
+            <div class="fa fa-bars fa-2x"></div>
             <div class="rightSide">
                 <a class="topNav" id="navMarket">Market</a>
                 <a class="topNav" id="navProfile">Profile</a>
@@ -34,6 +35,7 @@
                 <a class="topNav" id="navCreateUser">Create</a>
                 <a class="topNav" id="navTeam">Team</a>
                 <a class="topNav" id="navCart"><i class="fas fa-shopping-cart"></i></a>
+                <a class="topNav" id="navCartHide"><i class="fas fa-angle-up"></i></a>
             </div>
         </nav>
 <!--------------
@@ -144,7 +146,7 @@
     Profile 
 ---------------->
         <div class="profilePage">
-            <h2>User Profile</h2>
+            <h2>User Profiles</h2>
             <div class="profiles" id='userTarget'> <!-- id='userTarget' -->
             </div>
         </div>
@@ -154,66 +156,62 @@
 ---------------->
 
 <div class="ourTeam">
-    <h2>"Meet The Team"</h2>
-    <p>🌸🌼🌺 So to celebrate the season of flower power,Happiness radiates like the fragrance from a flower and draws all good things towards you. ....</p>
-    <br>
-
+    <h2>Meet The Team</h2>
+    <p class="teamBlurb">To celebrate the season of spring, 
+        may happiness radiate like the fragrance of a flower
+        and draw all good things towards you.</p>
     <div class="row">
-    <div class="columnTeam">
-        <div class="cardTeam">
-        <img src="https://avatars2.githubusercontent.com/u/40311605?s=460&v=4" alt="Kanjamad Bosel" style="width:100%">
-        <div class="container">
-            <h2>Kanjamad Bosel</h2>
-            <p class="titleTeam">Founder</p>
-            <p>Some text that describes me lorem ipsum ipsum lorem.</p>
-            <p>example@example.com</p>
-            <div style="margin: 24px 0;">
-            <a class="team" href="#"><i class="fab fa-dribbble"></i></a> 
-            <a class="team" href="#"><i class="fab fa-twitter"></i></a>  
-            <a class="team" href="#"><i class="fab fa-linkedin"></i></a>  
-            <a class="team" href="#"><i class="fab fa-facebook"></i></a> 
+        <div class="columnTeam">
+            <div class="cardTeam">
+                <img src="https://avatars2.githubusercontent.com/u/40311605?s=460&v=4" alt="Kanjamad Bosel" style="width:100%">
+                <div class="container">
+                    <h2>Kanjamad Bosel</h2>
+                    <p class="titleTeam">Founder</p>
+                    <p>Some text that describes me lorem ipsum ipsum lorem.</p>
+                    <p>example@example.com</p>
+                    <div class="icons">
+                        <i class="fab fa-instagram"></i>
+                        <i class="fab fa-facebook-square"></i>
+                        <i class="fab fa-google-plus-square"></i>
+                        <i class="fab fa-linkedin"></i>
+                    </div>
+                </div>
             </div>
-            <p><button class="buttonTeam">Contact</button></p>
         </div>
-        </div>
-    </div>
-
-    <div class="columnTeam">
-        <div class="cardTeam">
-        <img src="https://ca.slack-edge.com/T0351JZQ0-UH05BGDGQ-60b879e75817-48" alt="Joseph Rohman" style="width:100%">
-        <div class="container">
-            <h2>Joseph Rohman</h2>
-            <p class="titleTeam">Art Director</p>
-            <p>Some text that describes me lorem ipsum ipsum lorem.</p>
-            <p>example@example.com</p>
-            <div style="margin: 24px 0;">
-            <a class="team" href="#"><i class="fab fa-dribbble"></i></a> 
-            <a class="team" href="#"><i class="fab fa-twitter"></i></a>  
-            <a class="team" href="#"><i class="fab fa-linkedin"></i></a>  
-            <a class="team" href="#"><i class="fab fa-facebook"></i></a> 
+        <div class="columnTeam">
+            <div class="cardTeam">
+                <img src="https://ca.slack-edge.com/T0351JZQ0-UH05BGDGQ-60b879e75817-48" alt="Joseph Rohman" style="width:100%">
+                <div class="container">
+                    <h2>Joseph Rohman</h2>
+                    <p class="titleTeam">Art Director</p>
+                    <p>Some text that describes me lorem ipsum ipsum lorem.</p>
+                    <p>example@example.com</p>
+                    <div class="icons">
+                        <i class="fab fa-instagram"></i>
+                        <i class="fab fa-facebook-square"></i>
+                        <i class="fab fa-google-plus-square"></i>
+                        <i class="fab fa-linkedin"></i>
+                    </div>
+                </div>
             </div>
-            <p><button class="buttonTeam">Contact</button></p>
         </div>
-        </div>
-    </div>
-    <div class="columnTeam">
-        <div class="cardTeam">
-        <img src="https://ca.slack-edge.com/T0351JZQ0-UGFLJ440P-72c9f947e75d-48" alt="Johnson Vo" style="width:100%">
-        <div class="container">
-            <h2>Johnson Vo</h2>
-            <p class="titleTeam">Designer</p>
-            <p>Some text that describes me lorem ipsum ipsum lorem.</p>
-            <p>example@example.com</p>
-            <div style="margin: 24px 0;">
-            <a class="team" href="#"><i class="fab fa-dribbble"></i></a> 
-            <a class="team"  href="#"><i class="fab fa-twitter"></i></a>  
-            <a class="team" href="#"><i class="fab fa-linkedin"></i></a>  
-            <a class="team" href="#"><i class="fab fa-facebook"></i></a> 
+        <div class="columnTeam">
+            <div class="cardTeam">
+                <img src="https://ca.slack-edge.com/T0351JZQ0-UGFLJ440P-72c9f947e75d-48" alt="Johnson Vo" style="width:100%" />
+                <div class="container">
+                    <h2>Johnson Vo</h2>
+                    <p class="titleTeam">Designer</p>
+                    <p>Some text that describes me lorem ipsum ipsum lorem.</p>
+                    <p>example@example.com</p>
+                    <div class="icons">
+                        <i class="fab fa-instagram"></i>
+                        <i class="fab fa-facebook-square"></i>
+                        <i class="fab fa-google-plus-square"></i>
+                        <i class="fab fa-linkedin"></i>
+                    </div>
+                </div>
             </div>
-            <p><button class="buttonTeam">Contact</button></p>
         </div>
-        </div>
-    </div>
     </div>
 </div>
 

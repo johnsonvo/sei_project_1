@@ -114,6 +114,17 @@ function removeItem() {
     $(this).parent().remove();
 };
 
+// Reveal Drop-Down Menu
+$('.fa-bars').click( () => {
+    $('.rightSide').css('display', 'flex');
+});
+
+// Hide Drop-Down Menu
+$('#navCartHide').click( () => {
+    $('.rightSide').css('display', 'none');
+});
+
+
 // ____________________________________ //
 
 var usersList;
@@ -153,7 +164,7 @@ $(document).ready(function(){
 });
 
 function getUserHtml(user){
-    return `<hr>
+    return `
         <div class="card">
         <img src="" alt="${user.fullName}" style="width:100%;">
         <h1>${user.fullName}</h1>

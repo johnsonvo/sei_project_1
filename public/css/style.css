@@ -11,6 +11,8 @@ Body {
 
 h2{
     margin: 0 auto;
+    text-align: center;
+    font-size: 3vh;
 }
 
 .header {
@@ -85,6 +87,15 @@ nav {
     font-family: Arial, Helvetica, sans-serif;
     font-weight: 900;
     color: #E4EBF4;
+}
+
+.fa-bars {
+    display: none;
+    color: transparent;
+}
+
+.fa-angle-up {
+    color: transparent;
 }
 
 /* Market __________________________________________ */
@@ -178,12 +189,15 @@ p {
 }
 
 .card {
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-    max-width: 300px;
-    margin: auto;
-    text-align: center;
-    font-family: arial;
-    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-content: space-between;
+    width: 22vw;
+    height: 30vw;
+    margin: 1vw;
+    background-color: #E4EBF4;
+    filter: drop-shadow(0 0 0.5rem grey);
 }
 
 .title {
@@ -243,6 +257,8 @@ button[type=submit] {
 /* Profile __________________________________________ */
 .profilePage {
     display: none;
+    flex-direction: column;
+    align-items: center;
 }
 
 .profiles {
@@ -274,27 +290,33 @@ html {
     box-sizing: border-box;
 }
 
-  *, *:before, *:after {
-    box-sizing: inherit;
-}
 .ourTeam{
     display: none;
+    flex-direction: column;
+    align-items: center;
+    height: 84vh;
 }
+
+.row {
+    display: flex;
+    justify-content: space-between;
+    width: 70vw;
+}
+
+.teamBlurb{
+    font-size: 2vh;
+    font-style: italic;
+    height: 6vh;
+    margin-top: 3vh;
+}
+
 .columnTeam {
-    float: left;
-    width: 33.3%;
+    width: 20vw;
     margin-bottom: 16px;
     padding: 0 8px;
-    }
-
-    @media screen and (max-width: 650px) {
-    .columnTeam {
-        width: 100%;
-        display: block;
-    }
 }
 
-    .cardTeam {
+.cardTeam {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     text-align: center;
 }
@@ -303,24 +325,17 @@ html {
     padding: 0 16px;
 }
 
-    .container::after, .row::after {
-    content: "";
-    clear: both;
-    display: table;
-    }
-
-    .titleTeam {
+.titleTeam {
     color: grey;
-    }
-
+}
 
 .team {
     text-decoration: none;
     font-size: 22px;
     color:black;
-    }
+}
 
-    .buttonTeam {
+.buttonTeam {
     border: none;
     outline: 0;
     display: inline-block;
@@ -330,12 +345,15 @@ html {
     text-align: center;
     cursor: pointer;
     width: 100%;
-    }
+}
 
-    .buttonTeam:hover {
+.buttonTeam:hover {
     background-color: #555;
-    }
+}
 
+.userFullName {
+    font-size: 1vh;
+}
 
 /* Shopping Cart __________________________________________ */
 
@@ -420,16 +438,79 @@ footer {
 
 /* Ipad Screen */
 @media only screen and (max-width: 770px) {
+    .flowerCardImgs {
+        width: 30vw;
+        height: 40vw;
+    }
     .flowerImgs{
-        width: 30.666vw;
-        height: 30.666vw;
+        width: 30vw;
+        height: 30vw;
+    }
+    .card {
+        width: 46vw;
+        height: 56vw;
+    }
+    .forms {
+        width: 50vw;
+        height: 50vw;
+    }
+}
+
+/* Weird in-between nav situation */
+@media only screen and (max-width: 736px) {
+    .rightSide {
+        display: none;
+        flex-direction: column;
+        position: fixed;
+        width: 20vw;
+        border-radius: 1vw;
+        top: 6vh;
+        right: 1vw;
+        background-color: #BC202F;
+        z-index: 3;
+    }
+    .topNav {
+        font-size: 2vh;
+    }
+    .fa-bars {
+        display: block;
+        margin: 1vh 2vw 0 0;
+        color: white;
+        opacity: 100%;
+        z-index: 4;
+    }
+    .fa-angle-up {
+        color: white;
     }
 }
 
 /* Iphone Screen */
 @media only screen and (max-width: 500px) {
+    .flowerCardImgs {
+        width: 46vw;
+        height: 56vw;
+    }
     .flowerImgs{
         width: 46vw;
         height: 46vw;
+    }
+    .card {
+        width: 46vw;
+        height: 56vw;
+    }
+    .forms {
+        width: 50vw;
+        height: 50vw;
+    }
+    .row {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        width: 70vw;
+    }
+    .columnTeam {
+        width: 70vw;
+        margin-bottom: 16px;
+        padding: 0 8px;
     }
 }
