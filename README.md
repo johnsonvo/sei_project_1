@@ -1,6 +1,6 @@
 
 # Compass Rose 
-<img class="headerLogo" src="/images/crLogo.png" alt="Compass Rose Logo" />
+<img class="headerLogo" src="https://github.com/josephhrohman/sei_project_1/blob/dev-working/public/images/crLogo.png" alt="Compass Rose Logo" />
 
 This app creates a location for custom flower breaders to create a profile and post their products.
 
