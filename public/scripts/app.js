@@ -101,19 +101,27 @@ $('#searchButton').click( (e) => {
     e.preventDefault();
 })
 
+// ----------------------------Shopping Cart -------------------------
 // Adds Product Clicked to the Shopping Cart
-$('.flowers').on('click', '#addToCart', (e) => {
-    const itemList = 
-`<li class="addedRose">${flower.name} ${flower.price}<button class="removeItemButton" id="removeItem">X</button></li>`;
-    $('.shoppingList').prepend(itemList);
-});
+// $('.flowers').on('click', '#addToCart', (e) => {
+//     e.preventDefault();
+//     console.log('add to shopping Cart .....Yay!!!!!!!!!!!!!');
+//     const itemList = 
+//         `<li class="addedRose"><h1>${flower._id}</h1>
+//     <button class="removeItemButton" id="removeItem">X</button></li>`;
+
+//     $('.shoppingCartList').prepend(itemList);
+// });
+
 
 // Removes Product Clicked to the Shopping Cart
-$('.shoppingList').on('click', '#removeItem', removeItem);
-function removeItem() {
-    $(this).parent().remove();
-};
+// $('.shoppingList').on('click', '#removeItem', removeItem);
+// function removeItem() {
+//     $(this).parent().remove();
+// };
 
+
+// -------------------- Menu ---------------------
 // Reveal Drop-Down Menu
 $('.fa-bars').click( () => {
     $('.rightSide').css('display', 'flex');
@@ -131,7 +139,8 @@ var usersList;
 var allUsers = [];
 var flowersList;
 var allFlowers = [];
-
+var ordersList;
+var allOrders = [];
 
 
 $(document).ready(function(){
@@ -201,8 +210,44 @@ $(document).ready(function(){
 
 
 
+            // ------------- order---------------
+            $ordersList = $('.shoppingCartList');
+            $.ajax({
+                method: 'GET',
+                url: '/api/orders',
+                success: handleOrderSuccess,
+                error: handleOrderError
+            });
+        // this.  will work on ES5 
+            $('.flowers').on('click', '#addToCart', (e) => {
+                console.log($(this).serialize());
+                e.preventDefault();
+                console.log('add to shopping Cart .....Yay!!!!!!!!!!!!!');
+            $.ajax({
+                method: 'POST',
+                url: '/api/orders',
+                data: $(this).serialize(),
+                success: newOrderSuccess,
+                error: newOrderError
+                });
+            });
+            $ordersList.on('click', '.deleteBtnOrder', (function () {
+                // console.log($(this));
+                console.log('clicked delete button to', '/api/orders/'+$(this).attr('data-id'));
+            $.ajax({
+                method: 'DELETE',
+                url: '/api/orders/'+$(this).attr('data-id'),
+                success: deleteOrderSuccess,
+                error: deleteOrderError
+                });
+            }));
+
+    
+
 });
 
+
+// ----------------------------   Users -----------------------
 function getUserHtml(user){
     return `
         <div class="card">
@@ -353,4 +398,79 @@ function deleteFlowerSuccess(json){
 
 function deleteFlowerError(){
     console.log('deleteflower error!');
+};
+
+
+
+// --------------------------- Order -----------------------
+
+
+function getOrderHtml(order){
+    return `
+    <div class="cardOrderr">
+    <img src="" alt="${order.name}" style="width:100%;">
+    <h1>${order.name}</h1>
+    <p class="title">${order.type}</p>
+    <p class="title">${order.season}</p>
+    <p>order: ${order.price}</p>
+    
+    <button id="addToCart">Add to Cart</button>
+    <button type="button" name="button" class="deleteBtnOrder  deleteBtnOrder btn btn-danger pull-right" data-id=${order._id}>Delete</button>
+    </div>`;
+
+};
+
+function getAllOrdersHtml(orders){
+    console.log(orders)
+    return orders.map(getOrderHtml).join("");
+};
+
+// helper function to render all posts to view
+// note: we empty and re-render the collection each time our post data changes
+function renderOrder() {
+    $ordersList.empty();
+    var ordersHtml = getAllOrdersHtml(allOrders);
+    $ordersList.append(ordersHtml);
+};
+
+
+function handleOrderSuccess(json){
+    allOrders = json;
+    renderOrder();
+};
+
+function handleOrderError (e) {
+    console.log('uh oh');
+    $('#orderTarget').text('Failed to load users, is the server working?');
+};
+
+function newOrderSuccess(json){
+    console.log(json)
+    $('.flowers').val('');
+    allOrders.push(json);
+    renderOrder();
+}
+
+function newOrderError(){
+    console.log('newOrder error!');
+}
+
+
+function deleteOrderSuccess(json){
+    var order = json;
+    console.log(json);
+    var orderId = order._id;
+    console.log('delete order', orderId);
+    // find the order with the correct ID and remove it from our alllOrder array
+    for(var i = 0; i< allOrders.length; i++) {
+        if(allOrders[i]._id === orderId) {
+        allOrders.splice(i, 1);
+        break;  // we found our order - no reason to keep searching (this is why we didn't use forEach)
+        }
+    }
+    renderOrder();
+};
+
+function deleteOrderError(){
+    console.log('deleteorder error!');
 };
