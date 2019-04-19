@@ -4,17 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <!-- <link rel="stylesheet" type="text/css" href="reset.css">
-    <link rel="stylesheet" type="text/css" href="styles.css"> -->
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.4.0.js" integrity="sha256-DYZMCC8HTC+QDr5QNaIcfR7VSPtcISykd+6eSmBW5qo=" crossorigin="anonymous"></script>
     <title>Compass Rose</title>
 </head>
 <body>
-<!--------------
-    Landing Page 
----------------->
     <header class="header" id="landingPage">
         <div class="headerTop">
             <img class="headerTitle" src="/images/crHeader.png" alt="Compass Rose Logo" />
@@ -38,9 +33,6 @@
                 <a class="topNav" id="navCartHide"><i class="fas fa-angle-up"></i></a>
             </div>
         </nav>
-<!--------------
-    Market Place 
----------------->
         <div class="marketPlace">
             <div class="searchMarket">
                 <form class="searchBar">
@@ -48,14 +40,10 @@
                     <button type="submit" id="searchButton">Search</i></button>
                 </form>
             </div>
-                <div  class="flowers" id="flowerTarget">
+            <div  class="flowers" id="flowerTarget">
                 </div>
             </div>
         </div>
-
-<!--------------
-    Create User 
----------------->
         <div class="userCreatePage">
             <form action="/profile" method="post" enctype="multipart/form-data" class="forms" id="newUserForm" >
                 <h2>Create User</h2>
@@ -72,9 +60,6 @@
                 <button type="submit" value="Register" id="register">Register</button>
             </form>
         </div>
-<!--------------
-    Create Flower 
----------------->
         <div class="flowerCreatePage">
             <form action="/profile" method="post" enctype="multipart/form-data" class="forms" id="newFlowerForm">
                 <h2>Create Flower</h2>
@@ -92,81 +77,70 @@
                 <button type="submit" value="Register" id="registerFlower">Create Flower</button>
             </form>
         </div>
-<!--------------
-    Profile 
----------------->
         <div class="profilePage">
             <h2>User Profiles</h2>
             <div class="profiles" id='userTarget'>
             </div>
         </div>
-<!--------------
-    Our Team 
----------------->
-
-<div class="ourTeam">
-    <h2>Meet The Team</h2>
-    <p class="teamBlurb">To celebrate the season of spring, 
-        may happiness radiate like the fragrance of a flower
-        and draw all good things towards you.</p>
-    <div class="row">
-        <div class="columnTeam">
-            <div class="cardTeam">
-                <img src="https://avatars2.githubusercontent.com/u/40311605?s=460&v=4" alt="Kanjamad Bosel" class="teamImgs"/>
-                <div class="container">
-                    <h2>Kanjamad Bosel</h2>
-                    <p class="titleTeam">Founder</p>
-                    <p>Some text that describes me lorem ipsum ipsum lorem.</p>
-                    <p>example@example.com</p>
-                    <div class="icons">
-                        <i class="fab fa-instagram"></i>
-                        <i class="fab fa-facebook-square"></i>
-                        <i class="fab fa-google-plus-square"></i>
-                        <i class="fab fa-linkedin"></i>
+        <div class="ourTeam">
+            <h2>Meet The Team</h2>
+            <p class="teamBlurb">To celebrate the season of spring, 
+                may happiness radiate like the fragrance of a flower
+                and draw all good things towards you.</p>
+            <div class="row">
+                <div class="columnTeam">
+                    <div class="cardTeam">
+                        <img src="https://avatars2.githubusercontent.com/u/40311605?s=460&v=4" alt="Kanjamad Bosel" class="teamImgs"/>
+                        <div class="container">
+                            <h2>Kanjamad Bosel</h2>
+                            <p class="titleTeam">Founder</p>
+                            <p>Some text that describes me lorem ipsum ipsum lorem.</p>
+                            <p>example@example.com</p>
+                            <div class="icons">
+                                <i class="fab fa-instagram"></i>
+                                <i class="fab fa-facebook-square"></i>
+                                <i class="fab fa-google-plus-square"></i>
+                                <i class="fab fa-linkedin"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="columnTeam">
+                    <div class="cardTeam">
+                        <img src="https://ca.slack-edge.com/T0351JZQ0-UH05BGDGQ-60b879e75817-48" alt="Joseph Rohman" class="teamImgs"/>
+                        <div class="container">
+                            <h2>Joseph Rohman</h2>
+                            <p class="titleTeam">Art Director</p>
+                            <p>Some text that describes me lorem ipsum ipsum lorem.</p>
+                            <p>example@example.com</p>
+                            <div class="icons">
+                                <i class="fab fa-instagram"></i>
+                                <i class="fab fa-facebook-square"></i>
+                                <i class="fab fa-google-plus-square"></i>
+                                <i class="fab fa-linkedin"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="columnTeam">
+                    <div class="cardTeam">
+                        <img src="https://ca.slack-edge.com/T0351JZQ0-UGFLJ440P-72c9f947e75d-48" alt="Johnson Vo" class="teamImgs"/>
+                        <div class="container">
+                            <h2>Johnson Vo</h2>
+                            <p class="titleTeam">Designer</p>
+                            <p>Some text that describes me lorem ipsum ipsum lorem.</p>
+                            <p>example@example.com</p>
+                            <div class="icons">
+                                <i class="fab fa-instagram"></i>
+                                <i class="fab fa-facebook-square"></i>
+                                <i class="fab fa-google-plus-square"></i>
+                                <i class="fab fa-linkedin"></i>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="columnTeam">
-            <div class="cardTeam">
-                <img src="https://ca.slack-edge.com/T0351JZQ0-UH05BGDGQ-60b879e75817-48" alt="Joseph Rohman" class="teamImgs"/>
-                <div class="container">
-                    <h2>Joseph Rohman</h2>
-                    <p class="titleTeam">Art Director</p>
-                    <p>Some text that describes me lorem ipsum ipsum lorem.</p>
-                    <p>example@example.com</p>
-                    <div class="icons">
-                        <i class="fab fa-instagram"></i>
-                        <i class="fab fa-facebook-square"></i>
-                        <i class="fab fa-google-plus-square"></i>
-                        <i class="fab fa-linkedin"></i>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="columnTeam">
-            <div class="cardTeam">
-                <img src="https://ca.slack-edge.com/T0351JZQ0-UGFLJ440P-72c9f947e75d-48" alt="Johnson Vo" class="teamImgs"/>
-                <div class="container">
-                    <h2>Johnson Vo</h2>
-                    <p class="titleTeam">Designer</p>
-                    <p>Some text that describes me lorem ipsum ipsum lorem.</p>
-                    <p>example@example.com</p>
-                    <div class="icons">
-                        <i class="fab fa-instagram"></i>
-                        <i class="fab fa-facebook-square"></i>
-                        <i class="fab fa-google-plus-square"></i>
-                        <i class="fab fa-linkedin"></i>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!--------------
-    Shopping Cart 
----------------->
         <div class="cart">
             <div class="hideShoppingCart" id="hide">
                 <i class="fas fa-angle-right fa-2x"></i>
@@ -191,10 +165,7 @@
             <i class="fab fa-linkedin fa-3x"></i>
         </div>
     </footer>
-
-<!-- jQuery -->
     <script src="scripts/jquery-3.4.0.js"></script>
-<!-- APPLICATION SCRIPTS -->
     <script src="scripts/app.js"></script>
 </body>
 </html>
