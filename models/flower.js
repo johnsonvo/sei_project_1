@@ -5,7 +5,7 @@ const FlowerSchema = new Schema({
 
     name:String,
     price: String || Number,
-    Type: String,
+    type: String,
     season:String,
     orders:Number,
     created_date:{type:Date, default:Date.now},

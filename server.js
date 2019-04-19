@@ -160,7 +160,7 @@ app.post('/api/orders', (req, res) => {
     db.User.findOne({fullName: req.body.user}, (err, user) => {
     if (err) return res.json({error: err});
     if (user === null) {
-      db.user.create({fullName:req.body.user, alive: true}, (err, newOrder) => {
+      db.User.create({fullName:req.body.user, alive: true}, (err, newOrder) => {
         if (err) return console.log(`create error: ${err}`);
         newOrder.user = newOrder;
         newOrder.save((err, savedOrder) => {
