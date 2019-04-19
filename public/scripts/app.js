@@ -206,12 +206,12 @@ $(document).ready(function(){
 function getUserHtml(user){
     return `
         <div class="card">
-        <img src="" alt="${user.fullName}" style="width:100%;">
+        <div class="userImgs"><img src="" alt="${user.fullName}" style="width:100%;"></div>
         <h1>${user.fullName}</h1>
         <p class="title">${user.email}</p>
         <p class="title">${user.dateOfBirth}</p>
         <p>Flower: ${user.flower}</p>
-        <div style="margin: 24px 0;">
+        <div>
             <a class="userLink" href="#"><i class="fab fa-dribbble"></i></a> 
             <a class="userLink" href="#"><i class="fab fa-twitter"></i></a>  
             <a class="userLink" href="#"><i class="fab fa-linkedin"></i></a>  
@@ -287,15 +287,15 @@ function deleteUserError(){
 
 function getFlowerHtml(flower){
     return `
-    <div class="cardFlower">
-    <img src="" alt="${flower.name}" style="width:100%;">
+    <div class="flowerCardImgs">
+    <div class="flowerImgs"><img src="" alt="${flower.name}" style="width:100%;"></div>
     <h1>${flower.name}</h1>
     <p class="title">${flower.type}</p>
     <p class="title">${flower.season}</p>
     <p>Flower: ${flower.price}</p>
     
-    <button id="addToCart">Add to Cart</button>
-    <button type="button" name="button" class="deleteBtnFlower  deleteBtnFlower btn btn-danger pull-right" data-id=${flower._id}>Delete</button>
+    <button class="productAddButton" id="addToCart">Add to Cart</button>
+    <button type="button" name="button" class="deleteBtnFlower  deleteBtnFlower btn btn-danger pull-right productDeleteButton" data-id=${flower._id}>Delete</button>
     </div>`;
 
 };

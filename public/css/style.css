@@ -9,6 +9,10 @@ Body {
     background-color: #E4EBF4;
 }
 
+h1 {
+    font-size: 3vh;
+}
+
 h2{
     margin: 0 auto;
     text-align: center;
@@ -118,7 +122,6 @@ nav {
     flex-wrap: wrap;
     justify-content: flex-start;
     width: 96vw;
-    height: 84vh;
     margin: 0 2vw 0 2vw;
 }
 
@@ -131,16 +134,46 @@ nav {
     margin: 1vw;
     background-color: #E4EBF4;
     filter: drop-shadow(0 0 0.5rem grey);
+    border-radius: 1vw;
 }
 
 .flowerImgs {
     width: 22vw;
     height: 22vw;
+    background-color: white;
+    border-radius: 1vh 1vh 0 0;
 }
 
 p {
     font-size: 1vw;
     margin: .25vw;
+}
+
+.productAddButton {
+    border: none;
+    outline: 0;
+    display: inline-block;
+    padding: 8px;
+    color: white;
+    background-color: #BC202F;
+    text-align: center;
+    cursor: pointer;
+    width: 100%;
+    font-size: 2vh;
+}
+
+.productDeleteButton{
+    border: none;
+    outline: 0;
+    display: inline-block;
+    padding: 8px;
+    color: white;
+    background-color: black;
+    text-align: center;
+    cursor: pointer;
+    width: 100%;
+    font-size: 2vh;
+    border-radius: 0 0 1vw 1vw;
 }
 
 
@@ -193,12 +226,13 @@ p {
     display: flex;
     flex-direction: column;
     align-items: center;
-    align-content: space-between;
+    justify-content: space-between;
     width: 22vw;
     height: 30vw;
     margin: 1vw;
     background-color: #E4EBF4;
     filter: drop-shadow(0 0 0.5rem grey);
+    border-radius: 1vh;
 }
 
 .title {
@@ -217,6 +251,7 @@ p {
     cursor: pointer;
     width: 100%;
     font-size: 18px;
+    border-radius: 0 0 1vh 1vh;
 }
 
 .userLink {
@@ -286,6 +321,13 @@ button[type=submit] {
     height: 20vw;
 }
 
+.userImgs {
+    width: 22vw;
+    height: 22vw;
+    background-color: white;
+    border-radius: 1vh 1vh 0 0;
+}
+
 /* Our Team __________________________________________ */
 html {
     box-sizing: border-box;
@@ -320,6 +362,8 @@ html {
 .cardTeam {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     text-align: center;
+    border-radius: 1vh;
+    width: 22vw;
 }
 
 .container {
@@ -354,6 +398,14 @@ html {
 
 .userFullName {
     font-size: 1vh;
+}
+
+.teamImgs {
+    margin-bottom: 1vh;
+    width: 22vw;
+    height: 22vw;
+    background-color: white;
+    border-radius: 1vh 1vh 0 0;
 }
 
 /* Shopping Cart __________________________________________ */
@@ -408,7 +460,7 @@ html {
 .removeItemButton {
     color: white;
     background-color: grey;
-    border-radius: 1vh;
+    border-radius: 1vw;
 }
 
 /* Footer __________________________________________ */
