@@ -118,8 +118,13 @@ function removeItem() {
 
 var usersList;
 var allUsers = [];
+var flowersList;
+var allFlowers = [];
+
+
 
 $(document).ready(function(){
+    // ------------- user---------------
     $usersList = $('#userTarget');
     $.ajax({
         method: 'GET',
@@ -150,6 +155,41 @@ $(document).ready(function(){
         error: deleteUserError
         });
     }));
+
+       // ------------- flower---------------
+    $flowersList = $('#flowerTarget');
+    $.ajax({
+        method: 'GET',
+        url: '/api/flowers',
+        success: handleFlowerSuccess,
+        error: handleFlowerError
+    });
+// this.  will work on ES5 
+    $('#newFlowerForm').on('submit', function(e) {
+        console.log($(this).serialize());
+        e.preventDefault();
+        console.log('submit and get new flower.....!!!!!!!!!');
+    $.ajax({
+        method: 'POST',
+        url: '/api/flowers',
+        data: $(this).serialize(),
+        success: newFlowerSuccess,
+        error: newFlowerError
+        });
+    });
+    $flowersList.on('click', '.deleteBtnFlower', (function () {
+        // console.log($(this));
+        console.log('clicked delete button to', '/api/flowers/'+$(this).attr('data-id'));
+    $.ajax({
+        method: 'DELETE',
+        url: '/api/flowers/'+$(this).attr('data-id'),
+        success: deleteFlowerSuccess,
+        error: deleteFlowerError
+        });
+    }));
+
+
+
 });
 
 function getUserHtml(user){
@@ -225,4 +265,102 @@ function deleteUserSuccess(json){
 
 function deleteUserError(){
     console.log('deleteuser error!');
+};
+
+
+
+
+
+// --------------------------- Flower -----------------------
+
+
+function getFlowerHtml(flower){
+    return 
+        `<hr>
+            <p>
+            <b>${flower.name}</b>
+            <b>${flower.type}</b>
+            <b>${flower.season}</b>
+            <b>${flower.price}</b>
+            <button type="button" name="button" class="deleteBtn btn btn-danger pull-right" data-id=${book._id}>Delete</button>
+            </p>`;
+
+};
+
+
+
+// `<hr>
+//         <div class="cardFlower">
+//         <img src="" alt="${flower.name}" style="width:100%;">
+//         <h1>${flower.name}</h1>
+//         <p class="title">${flower.type}</p>
+//         <p class="title">${flower.season}</p>
+//         <p>Flower: ${flower.price}</p>
+//         <div style="margin: 24px 0;">
+//             <a class="flowerLink" href="#"><i class="fab fa-dribbble"></i></a> 
+//             <a class="flowerLink" href="#"><i class="fab fa-twitter"></i></a>  
+//             <a class="flowerLink" href="#"><i class="fab fa-linkedin"></i></a>  
+//             <a class="flowerLink" href="#"><i class="fab fa-facebook"></i></a> 
+//         </div>
+        
+//         <button type="button" name="button" class="deleteflower  deleteBtnFlower btn btn-danger pull-right" data-id=${flower._id}>Delete</button>
+//         </div>`;
+
+
+
+
+
+function getAllFlowersHtml(flowers){
+    console.log(flowers)
+    return flowers.map(getFlowerHtml).join("");
+};
+
+// helper function to render all posts to view
+// note: we empty and re-render the collection each time our post data changes
+function renderFlower() {
+    $flowersList.empty();
+    var flowersHtml = getAllFlowersHtml(allFlowers);
+    $flowersList.append(flowersHtml);
+};
+
+
+function handleFlowerSuccess(json){
+    allFlowers = json;
+    renderFlower();
+};
+
+function handleFlowerError (e) {
+    console.log('uh oh');
+    $('#flowerTarget').text('Failed to load users, is the server working?');
+};
+
+function newFlowerSuccess(json){
+    console.log(json)
+    $('#newFlowerForm input').val('');
+    allFlowers.push(json);
+    renderFlower();
+}
+
+function newFlowerError(){
+    console.log('newFlower error!');
+}
+
+
+function deleteFlowerSuccess(json){
+    var flower = json;
+    console.log(json);
+    var flowerId = flower._id;
+    console.log('delete flower', flowerId);
+    // find the flower with the correct ID and remove it from our alllFowers array
+    for(var i = 0; i< allFlowers.length; i++) {
+        if(allFlowers[i]._id === flowerId) {
+        allFlowers.splice(i, 1);
+        break;  // we found our flower - no reason to keep searching (this is why we didn't use forEach)
+        }
+    }
+    renderFlower();
+};
+
+function deleteFlowerError(){
+    console.log('deleteflower error!');
 };

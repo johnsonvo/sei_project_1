@@ -7,6 +7,7 @@ const FlowerSchema = new Schema({
     // img url will use String
     avatar: { type: String, required: true },
     price: String,
+    Type: String,
     season:String,
     orders:Number,
     created_date:{type:Date, default:Date.now},
