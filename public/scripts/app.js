@@ -209,9 +209,8 @@ $(document).ready(function(){
     }));
 
 
-
             // ------------- order---------------
-            $ordersList = $('.shoppingCartList');
+            $ordersList = $('#orderTarget');
             $.ajax({
                 method: 'GET',
                 url: '/api/orders',
@@ -406,23 +405,21 @@ function deleteFlowerError(){
 
 
 function getOrderHtml(order){
-    return `
-    <div class="cardOrderr">
+    return `<hr>
     <img src="" alt="${order.name}" style="width:100%;">
-    <h1>${order.name}</h1>
-    <p class="title">${order.type}</p>
-    <p class="title">${order.season}</p>
-    <p>order: ${order.price}</p>
-    
-    <button id="addToCart">Add to Cart</button>
-    <button type="button" name="button" class="deleteBtnOrder  deleteBtnOrder btn btn-danger pull-right" data-id=${order._id}>Delete</button>
-    </div>`;
+        <p>
+        <b>${order.name}</b>
+        <b>${order.price}</b>
+        <button type="button" name="button" class="deleteBtnOrder  deleteBtnOrder btn btn-danger pull-right" data-id=${order._id}>Delete</button>
+        
+        </p>`;
 
 };
 
+
 function getAllOrdersHtml(orders){
     console.log(orders)
-    return orders.map(getOrderHtml).join("");
+    return orders.map(order => getOrderHtml(order)).join("");
 };
 
 // helper function to render all posts to view
