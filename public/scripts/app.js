@@ -276,28 +276,21 @@ function deleteUserError(){
 
 function getFlowerHtml(flower){
     return 
-        `<hr>
-            <p>
-            <b>${flower.name}</b>
-            <b>${flower.type}</b>
-            <b>${flower.season}</b>
-            <b>${flower.price}</b>
-            <button type="button" name="button" class="deleteBtnFlower btn btn-danger pull-right" data-id=${book._id}>Delete</button>
-            </p>`;
+    `<hr>
+    <div class="cardFlower">
+    <img src="" alt="${flower.name}" style="width:100%;">
+    <h1>${flower.name}</h1>
+    <p class="title">${flower.type}</p>
+    <p class="title">${flower.season}</p>
+    <p>Flower: ${flower.price}</p>
+    
+    
+    <button type="button" name="button" class="deleteBtnFlower  deleteBtnFlower btn btn-danger pull-right" data-id=${flower._id}>Delete</button>
+    </div>`;
 
 };
 
-// `<hr>
-// <div class="cardFlower">
-// <img src="" alt="${flower.name}" style="width:100%;">
-// <h1>${flower.name}</h1>
-// <p class="title">${flower.type}</p>
-// <p class="title">${flower.season}</p>
-// <p>Flower: ${flower.price}</p>
 
-
-// <button type="button" name="button" class="deleteBtnFlower  deleteBtnFlower btn btn-danger pull-right" data-id=${flower._id}>Delete</button>
-// </div>`;
 
 
 
