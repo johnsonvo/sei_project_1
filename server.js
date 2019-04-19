@@ -213,12 +213,12 @@ app.post('/api/flowers', (req, res) => {
 
 
 // Get Flower by ID
-// app.get('/api/flowers/:id', (req, res) => {
-//   db.Flower.findById(req.params.id, (err, fetchedFlower) => {
-//     if (err) return res.status(500).json({ msg: "Flower does not exist" });
-//     res.json(fetchedFlower);
-//   });
-// });
+app.get('/api/flowers/:id', (req, res) => {
+  db.Flower.findById(req.params.id, (err, fetchedFlower) => {
+    if (err) return res.status(500).json({ msg: "Flower does not exist" });
+    res.json(fetchedFlower);
+  });
+});
 
 
 
