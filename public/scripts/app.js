@@ -282,29 +282,24 @@ function getFlowerHtml(flower){
             <b>${flower.type}</b>
             <b>${flower.season}</b>
             <b>${flower.price}</b>
-            <button type="button" name="button" class="deleteBtn btn btn-danger pull-right" data-id=${book._id}>Delete</button>
+            <button type="button" name="button" class="deleteBtnFlower btn btn-danger pull-right" data-id=${book._id}>Delete</button>
             </p>`;
 
 };
 
-
-
 // `<hr>
-//         <div class="cardFlower">
-//         <img src="" alt="${flower.name}" style="width:100%;">
-//         <h1>${flower.name}</h1>
-//         <p class="title">${flower.type}</p>
-//         <p class="title">${flower.season}</p>
-//         <p>Flower: ${flower.price}</p>
-//         <div style="margin: 24px 0;">
-//             <a class="flowerLink" href="#"><i class="fab fa-dribbble"></i></a> 
-//             <a class="flowerLink" href="#"><i class="fab fa-twitter"></i></a>  
-//             <a class="flowerLink" href="#"><i class="fab fa-linkedin"></i></a>  
-//             <a class="flowerLink" href="#"><i class="fab fa-facebook"></i></a> 
-//         </div>
-        
-//         <button type="button" name="button" class="deleteflower  deleteBtnFlower btn btn-danger pull-right" data-id=${flower._id}>Delete</button>
-//         </div>`;
+// <div class="cardFlower">
+// <img src="" alt="${flower.name}" style="width:100%;">
+// <h1>${flower.name}</h1>
+// <p class="title">${flower.type}</p>
+// <p class="title">${flower.season}</p>
+// <p>Flower: ${flower.price}</p>
+
+
+// <button type="button" name="button" class="deleteBtnFlower  deleteBtnFlower btn btn-danger pull-right" data-id=${flower._id}>Delete</button>
+// </div>`;
+
+
 
 
 
